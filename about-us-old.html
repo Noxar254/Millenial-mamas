@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Millennial Mamas</title>
+    <meta name="description" content="Learn about Millennial Mamas - a nonprofit organization empowering single mothers across Kenya and beyond through community support, wellness programs, and economic empowerment.">
+    <meta name="keywords" content="Millennial Mamas, single mothers, nonprofit, Kenya, community support, mental health, economic empowerment">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        
+        .about-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 30px;
+            color: #22c55e;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.25);
+        }
+        
+        .hero-section {
+            text-align: center;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            padding: 80px 40px;
+            border-radius: 24px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffffff, #f0f9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 22px;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 60px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #22c55e, #16a34a);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(34, 197, 94, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #22c55e;
+            display: block;
+            margin-bottom: 8px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .content-grid {
+            display: grid;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        
+        .card-content {
+            color: #4b5563;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        .highlight-quote {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 20px;
+            padding: 32px;
+            margin: 24px 0;
+            border-left: 6px solid #22c55e;
+            position: relative;
+        }
+        
+        .highlight-quote::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 72px;
+            color: #22c55e;
+            opacity: 0.3;
+            font-family: serif;
+        }
+        
+        .quote-text {
+            font-size: 18px;
+            font-style: italic;
+            color: #1f2937;
+            font-weight: 500;
+            margin-left: 20px;
+        }
+        
+        .values-section {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 24px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .values-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #1f2937;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 24px 16px;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .value-card:hover {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-color: #22c55e;
+            transform: translateY(-4px);
+        }
+        
+        .value-emoji {
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .value-text {
+            font-weight: 600;
+            color: #374151;
+            font-size: 14px;
+        }
+        
+        .pillars-section {
+            margin: 60px 0;
+        }
+        
+        .pillars-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+        
+        .pillars-subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .pillar-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border-top: 6px solid;
+            transition: all 0.3s ease;
+        }
+        
+        .pillar-card:nth-child(1) { border-top-color: #ef4444; }
+        .pillar-card:nth-child(2) { border-top-color: #f59e0b; }
+        .pillar-card:nth-child(3) { border-top-color: #8b5cf6; }
+        
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pillar-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .pillar-card:nth-child(1) .pillar-number { background: #ef4444; }
+        .pillar-card:nth-child(2) .pillar-number { background: #f59e0b; }
+        .pillar-card:nth-child(3) .pillar-number { background: #8b5cf6; }
+        
+        .pillar-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        
+        .pillar-description {
+            color: #6b7280;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .pillar-features {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .pillar-features li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            color: #374151;
+        }
+        
+        .pillar-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .future-section {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 24px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .future-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .future-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .future-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #22c55e;
+        }
+        
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .goal-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 32px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .goal-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #22c55e;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .goal-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .goal-list li {
+            padding: 10px 0;
+            padding-left: 28px;
+            position: relative;
+            color: #e2e8f0;
+        }
+        
+        .goal-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 24px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-subtitle {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: white;
+            color: #22c55e;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-btn:hover {
+            background: #f8fafc;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        @media (max-width: 768px) {
+            .about-page {
+                padding: 15px;
+            }
+            
+            .hero-section {
+                padding: 60px 20px;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .quick-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            
+            .content-card, .values-section, .future-section, .cta-section {
+                padding: 30px 20px;
+            }
+            
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .goals-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="about-page">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">About Us</h1>
+                <p class="hero-subtitle">Empowering mothers, building communities, and creating lasting impact through support, growth, and sisterhood</p>
+            </div>
+        </section>
+        
+        <!-- Quick Stats -->
+        <div class="quick-stats">
+            <div class="stat-card">
+                <span class="stat-number">400+</span>
+                <span class="stat-label">Active Members</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Countries</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">9</span>
+                <span class="stat-label">Certified Therapists</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">KES 165K+</span>
+                <span class="stat-label">Investment Raised</span>
+            </div>
+        </div>
+        
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Who We Are -->
+            <div class="content-card">
+                <div class="card-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h2 class="card-title">Who We Are</h2>
+                <div class="card-content">
+                    <p>Millennial Mamas is a registered Community-Based, Nonprofit, and Non-Governmental Organization founded in August 2022 to support, uplift, and empower Single Moms across Kenya and beyond.</p>
+                    
+                    <p>We exist to create a safe, healing, and empowering community where single mothers can grow, thrive, and become the best version of themselves.</p>
+                    
+                    <p>Whether through personal tragedy, choice, divorce, teenage pregnancy, or silent struggles within marriage—many women walk the journey of motherhood alone. We call her the Millennial Mama. And we walk with her.</p>
+                    
+                    <p>Today, we are proud to be home to over 400 women aged 20–55, spanning Kenya, Rwanda, Zambia, Dubai, and the USA, united by shared strength, stories, and sisterhood.</p>
+                </div>
+            </div>
+            
+            <!-- Vision & Mission -->
+            <div class="content-card">
+                <div class="card-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h2 class="card-title">Our Vision & Mission</h2>
+                <div class="card-content">
+                    <div class="highlight-quote">
+                        <p class="quote-text">To create a world where single mothers are empowered, supported, and celebrated as they heal, grow, and elevate their lives, their families, and their communities.</p>
+                    </div>
+                    
+                    <h4 style="color: #1f2937; margin: 20px 0 10px 0; font-weight: 600;">Our Mission</h4>
+                    <p>To create a supportive network that uplifts single mothers by providing training, mentoring, and psycho-social support; driving community outreach and health initiatives; and building partnerships to enhance their well-being and independence.</p>
+                </div>
+            </div>
+            
+            <!-- What Makes a Millennial Mama -->
+            <div class="content-card">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h2 class="card-title">What Makes a Millennial Mama?</h2>
+                <div class="card-content">
+                    <p>A Millennial Mama is:</p>
+                    <ul class="pillar-features">
+                        <li>A single mother managing parenting responsibilities alone</li>
+                        <li>A teenage mother</li>
+                        <li>A mom navigating separation, divorce, or the loss of a partner</li>
+                        <li>A married woman who, despite her marriage, raises her children in isolation</li>
+                        <li>A woman seeking healing, community, support, and transformation</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Leadership -->
+            <div class="content-card">
+                <div class="card-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h2 class="card-title">Our Founders & Leadership</h2>
+                <div class="card-content">
+                    <p><strong>Founder:</strong> Salome Oyosi Faith</p>
+                    <p><strong>Co-Founder:</strong> Serah Seroney</p>
+                    <p><strong>Governance:</strong> 9 Executive Board Members</p>
+                    <p>Their passion, pain, and purpose birthed this sisterhood.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Values Section -->
+        <div class="values-section">
+            <h2 class="values-title">Our Core Values</h2>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 40px;">At the heart of everything we do are these values:</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <span class="value-emoji">🌿</span>
+                    <div class="value-text">Community</div>
+                </div>
+                <div class="value-card">
+                    <span class="value-emoji">🤝</span>
+                    <div class="value-text">Trust</div>
+                </div>
+                <div class="value-card">
+                    <span class="value-emoji">👭</span>
+                    <div class="value-text">Sisterhood</div>
+                </div>
+                <div class="value-card">
+                    <span class="value-emoji">❤️</span>
+                    <div class="value-text">Love</div>
+                </div>
+                <div class="value-card">
+                    <span class="value-emoji">🙏</span>
+                    <div class="value-text">Faith</div>
+                </div>
+                <div class="value-card">
+                    <span class="value-emoji">🔥</span>
+                    <div class="value-text">Resilience</div>
+                </div>
+                <div class="value-card">
+                    <span class="value-emoji">🛡️</span>
+                    <div class="value-text">Integrity</div>
+                </div>
+                <div class="value-card">
+                    <span class="value-emoji">🧘‍♀️</span>
+                    <div class="value-text">Wellness</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pillars Section -->
+        <div class="pillars-section">
+            <h2 class="pillars-title">What We Do</h2>
+            <p class="pillars-subtitle">We empower single mothers through three key pillars</p>
+            
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-number">1</div>
+                    <h3 class="pillar-title">Mental Health & Physical Wellness</h3>
+                    <p class="pillar-description">We recognize the mental and physical toll of single motherhood and aim to break that cycle through:</p>
+                    <ul class="pillar-features">
+                        <li>Therapy Sessions (Group & Personal)</li>
+                        <li>Wellness Hangouts & Retreats</li>
+                        <li>Health Screenings & Cancer Awareness</li>
+                        <li>Grief, Trauma & Healing Workshops</li>
+                        <li>9 Certified Therapists (including Pro-Bono Services)</li>
+                        <li>Partnered with Mental Health Happy Hour & Ushauri Wellness Africa</li>
+                    </ul>
+                    <p style="font-style: italic; color: #6b7280; margin-top: 16px;">We believe that a healed mom raises a healed generation.</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <div class="pillar-number">2</div>
+                    <h3 class="pillar-title">Economic Empowerment & Wealth Creation</h3>
+                    <p class="pillar-description">No mom should have to choose between survival and dignity.</p>
+                    <ul class="pillar-features">
+                        <li>Business Training & Webinars</li>
+                        <li>Money Mondays (Financial Literacy Series)</li>
+                        <li>Product & Service Marketplace Access</li>
+                        <li>Investment Group: Raised KES 165,000+</li>
+                        <li>Future Plans: Relaunch investment group with better structure</li>
+                        <li>Partner with financial institutions like Kingdom Bank</li>
+                    </ul>
+                </div>
+                
+                <div class="pillar-card">
+                    <div class="pillar-number">3</div>
+                    <h3 class="pillar-title">Outreach & Mentorship</h3>
+                    <p class="pillar-description">We give back because we've been there.</p>
+                    <ul class="pillar-features">
+                        <li>Sanitary Pad Drives</li>
+                        <li>School Mentorship Programs</li>
+                        <li>Prison & Children's Home Visits</li>
+                        <li>Street Children Feeding Programs</li>
+                        <li>Scholarships & Education Support for Students</li>
+                    </ul>
+                    <p style="font-style: italic; color: #6b7280; margin-top: 16px;">We believe in raising the next generation through empathy and outreach.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Future Vision -->
+        <div class="future-section">
+            <div class="future-content">
+                <h2 class="future-title">Our Future – Strategic Vision</h2>
+                
+                <div class="goals-grid">
+                    <div class="goal-card">
+                        <h3 class="goal-title">
+                            <span>🌱</span>
+                            1–3 Year Goals
+                        </h3>
+                        <ul class="goal-list">
+                            <li>Launch Mombasa & Kisumu Chapters</li>
+                            <li>Build internal capacity & leadership training</li>
+                            <li>Relaunch investment program</li>
+                            <li>Website development, podcast, and storytelling</li>
+                            <li>Strategic partnerships & brand building</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="goal-card">
+                        <h3 class="goal-title">
+                            <span>🌳</span>
+                            5–10 Year Dream
+                        </h3>
+                        <ul class="goal-list">
+                            <li>Build a Rescue & Wellness Centre</li>
+                            <li>Create an Education Fund</li>
+                            <li>Purchase land for a Hospital, School & Recreation Centre</li>
+                            <li>Provide project funding for entrepreneurial moms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Why We Exist -->
+        <div class="content-card">
+            <div class="card-icon">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+            <h2 class="card-title">Why We Exist</h2>
+            <div class="card-content">
+                <p>Because no woman should feel alone in motherhood.</p>
+                <p>Because empowered moms raise empowered children.</p>
+                <p>Because when mothers heal, communities rise.</p>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">Be Part of the Movement</h2>
+                <p class="cta-subtitle">Together, we rise. Together, we heal. Together, we thrive.</p>
+                <div class="cta-buttons">
+                    <a href="index.html#get-involved" class="cta-btn">Join Us</a>
+                    <a href="index.html#get-involved" class="cta-btn">Partner With Us</a>
+                    <a href="index.html#donate" class="cta-btn">Support Our Work</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
