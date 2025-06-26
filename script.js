@@ -585,4 +585,280 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 5000);
     }
+
+    // Support Section JavaScript Functionality
+    const supportSection = document.querySelector('.support-section');
+    const tierCards = document.querySelectorAll('.tier-card');
+    const supportButtons = document.querySelectorAll('.support-btn');
+    
+    if (supportSection && tierCards.length > 0) {
+        // Enhanced tier card interactions
+        tierCards.forEach((card, index) => {
+            // Staggered animation on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0) scale(1)';
+                        }, index * 200); // Staggered delay
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            observer.observe(card);
+            
+            // Enhanced hover effects
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.02)';
+                this.style.boxShadow = '0 20px 50px rgba(233, 30, 99, 0.2)';
+                
+                // Add glow effect to the border
+                this.style.borderColor = '#e91e63';
+                this.style.background = 'linear-gradient(135deg, #fff 0%, #fef7f8 100%)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-8px) scale(1)';
+                this.style.boxShadow = '0 15px 40px rgba(233, 30, 99, 0.15)';
+                this.style.borderColor = '#f3ccd6';
+                this.style.background = '#fff';
+            });
+            
+            // Card selection effect
+            card.addEventListener('click', function() {
+                // Remove selected class from all cards
+                tierCards.forEach(c => c.classList.remove('selected'));
+                
+                // Add selected class to clicked card
+                this.classList.add('selected');
+                
+                // Update button state
+                const button = this.querySelector('.support-btn');
+                button.style.background = '#2e7d32';
+                button.textContent = 'Selected ✓';
+                
+                // Reset other buttons
+                tierCards.forEach(c => {
+                    if (c !== this) {
+                        const otherButton = c.querySelector('.support-btn');
+                        otherButton.style.background = '#2e7d32';
+                        const originalTexts = ['Give Support', 'Join the Mission', 'Partner with Us'];
+                        otherButton.textContent = originalTexts[Array.from(tierCards).indexOf(c)];
+                    }
+                });
+                
+                // Add selection animation
+                this.style.animation = 'pulse 0.6s ease-in-out';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 600);
+            });
+        });
+        
+        // Support button interactions
+        supportButtons.forEach((button, index) => {
+            const originalTexts = ['Give Support', 'Join the Mission', 'Partner with Us'];
+            const amounts = ['$10', '$50', '$100+'];
+            
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Button loading animation
+                const originalText = this.textContent;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                this.disabled = true;
+                this.style.background = '#666';
+                
+                // Simulate processing
+                setTimeout(() => {
+                    // Success state
+                    this.innerHTML = '<i class="fas fa-heart"></i> Thank You!';
+                    this.style.background = '#2e7d32';
+                    
+                    // Show success notification
+                    showNotification(
+                        `Thank you for your ${amounts[index]} donation! Your support helps transform lives.`,
+                        'success'
+                    );
+                    
+                    // Reset button after delay
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.disabled = false;
+                        this.style.background = '#2e7d32';
+                    }, 3000);
+                }, 2000);
+            });
+            
+            // Button hover effects
+            button.addEventListener('mouseenter', function() {
+                if (!this.disabled) {
+                    this.style.transform = 'translateY(-2px) scale(1.05)';
+                    this.style.boxShadow = '0 8px 25px rgba(233, 30, 99, 0.3)';
+                }
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                if (!this.disabled) {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = 'none';
+                }
+            });
+        });
+        
+        // Add floating animation to tier amounts
+        const tierAmounts = document.querySelectorAll('.tier-amount');
+        tierAmounts.forEach(amount => {
+            amount.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1) rotate(2deg)';
+                this.style.color = '#e91e63';
+                this.style.textShadow = '2px 2px 4px rgba(233, 30, 99, 0.3)';
+            });
+            
+            amount.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+                this.style.color = '#2e7d32';
+                this.style.textShadow = '1px 1px 2px rgba(46, 125, 50, 0.1)';
+            });
+        });
+        
+        // Custom amount input functionality
+        function createCustomAmountModal() {
+            const modal = document.createElement('div');
+            modal.className = 'custom-amount-modal';
+            modal.innerHTML = `
+                <div class="modal-overlay">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Custom Donation Amount</h3>
+                            <button class="modal-close">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Enter your preferred donation amount:</p>
+                            <div class="custom-amount-input">
+                                <span class="currency-symbol">$</span>
+                                <input type="number" id="customAmount" placeholder="25" min="1" step="0.01">
+                            </div>
+                            <div class="quick-amounts">
+                                <button class="quick-amount" data-amount="25">$25</button>
+                                <button class="quick-amount" data-amount="75">$75</button>
+                                <button class="quick-amount" data-amount="150">$150</button>
+                                <button class="quick-amount" data-amount="250">$250</button>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-secondary modal-cancel">Cancel</button>
+                            <button class="btn-primary modal-donate">Donate Now</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Modal interactions
+            const closeBtn = modal.querySelector('.modal-close');
+            const cancelBtn = modal.querySelector('.modal-cancel');
+            const donateBtn = modal.querySelector('.modal-donate');
+            const customInput = modal.querySelector('#customAmount');
+            const quickAmounts = modal.querySelectorAll('.quick-amount');
+            
+            // Close modal events
+            [closeBtn, cancelBtn].forEach(btn => {
+                btn.addEventListener('click', () => modal.remove());
+            });
+            
+            modal.querySelector('.modal-overlay').addEventListener('click', (e) => {
+                if (e.target.classList.contains('modal-overlay')) {
+                    modal.remove();
+                }
+            });
+            
+            // Quick amount selection
+            quickAmounts.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    customInput.value = btn.dataset.amount;
+                    quickAmounts.forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                });
+            });
+            
+            // Donate button
+            donateBtn.addEventListener('click', () => {
+                const amount = customInput.value;
+                if (amount && amount > 0) {
+                    modal.remove();
+                    showNotification(
+                        `Thank you for your $${amount} donation! Your generosity makes a difference.`,
+                        'success'
+                    );
+                } else {
+                    showNotification('Please enter a valid donation amount.', 'error');
+                }
+            });
+            
+            // Focus input
+            customInput.focus();
+        }
+        
+        // Add custom amount link to support section
+        const customSupportText = document.querySelector('.custom-support');
+        if (customSupportText) {
+            customSupportText.innerHTML = `
+                Want to support in a unique way? 
+                <a href="#" class="custom-amount-link">Choose your amount</a> 
+                or contribute what works for you — every effort matters.
+            `;
+            
+            const customLink = customSupportText.querySelector('.custom-amount-link');
+            customLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                createCustomAmountModal();
+            });
+        }
+        
+        // Parallax effect for support section background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const supportSectionTop = supportSection.offsetTop;
+            const supportSectionHeight = supportSection.offsetHeight;
+            const windowHeight = window.innerHeight;
+            
+            // Check if support section is in viewport
+            if (scrolled + windowHeight > supportSectionTop && scrolled < supportSectionTop + supportSectionHeight) {
+                const parallaxSpeed = 0.5;
+                const yPos = -(scrolled - supportSectionTop) * parallaxSpeed;
+                supportSection.style.backgroundPosition = `center ${yPos}px`;
+            }
+        });
+    }
+
+    // Donation success animation
+    function animateDonationSuccess(button) {
+        // Create success particles
+        for (let i = 0; i < 6; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'success-particle';
+            particle.innerHTML = '<i class="fas fa-heart"></i>';
+            
+            const rect = button.getBoundingClientRect();
+            particle.style.left = (rect.left + rect.width / 2) + 'px';
+            particle.style.top = (rect.top + rect.height / 2) + 'px';
+            
+            document.body.appendChild(particle);
+            
+            // Animate particle
+            const angle = (i * 60) * Math.PI / 180;
+            const distance = 100;
+            const x = Math.cos(angle) * distance;
+            const y = Math.sin(angle) * distance;
+            
+            particle.style.transform = `translate(${x}px, ${y}px) scale(0)`;
+            particle.style.opacity = '0';
+            
+            setTimeout(() => particle.remove(), 1000);
+        }
+    }
 });
