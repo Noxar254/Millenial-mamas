@@ -291,5 +291,111 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize counting animations
     animateCounters();
 
+    // Programs Section Animations
+    function initProgramsAnimations() {
+        const programCards = document.querySelectorAll('.program-card');
+        
+        // Intersection Observer for card animations
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Stagger the animation of cards
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 150);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Initialize cards with hidden state
+        programCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            cardObserver.observe(card);
+        });
+
+        // Add enhanced hover effects
+        programCards.forEach(card => {
+            const icon = card.querySelector('.program-icon');
+            const features = card.querySelectorAll('.program-features li');
+            
+            card.addEventListener('mouseenter', () => {
+                // Animate features list
+                features.forEach((feature, index) => {
+                    setTimeout(() => {
+                        feature.style.transform = 'translateX(5px)';
+                        feature.style.transition = 'transform 0.2s ease';
+                    }, index * 50);
+                });
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                // Reset features list
+                features.forEach(feature => {
+                    feature.style.transform = 'translateX(0)';
+                });
+            });
+        });
+
+        // Smooth scroll for program CTAs
+        const programCTAs = document.querySelectorAll('.program-cta');
+        programCTAs.forEach(cta => {
+            cta.addEventListener('click', (e) => {
+                // Add click ripple effect
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.left = '50%';
+                ripple.style.top = '50%';
+                ripple.style.width = '20px';
+                ripple.style.height = '20px';
+                ripple.style.marginLeft = '-10px';
+                ripple.style.marginTop = '-10px';
+                
+                cta.style.position = 'relative';
+                cta.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    }
+
+    // Initialize programs animations
+    initProgramsAnimations();
+
+    // Add CSS animation for ripple effect
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .program-features li {
+            transition: transform 0.2s ease, color 0.3s ease;
+        }
+        
+        .programs-grid {
+            perspective: 1000px;
+        }
+        
+        .program-card {
+            transform-style: preserve-3d;
+        }
+    `;
+    document.head.appendChild(style);
+
     console.log('Millennial Mamas website loaded successfully! 🎉');
 });
