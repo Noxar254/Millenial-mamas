@@ -3418,11 +3418,6 @@ html {
 }
 
 @media (max-width: 480px) {
-    .footer-bottom-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
     .newsletter-input-group {
         flex-direction: column;
     }
