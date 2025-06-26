@@ -2505,6 +2505,533 @@ body {
     }
 }
 
+/* Resources Section Styles */
+.resources-section {
+    padding: 80px 0;
+    background-color: #f9fafb;
+}
+
+.resources-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.resource-subsection {
+    margin-bottom: 70px;
+}
+
+.resource-subsection:last-child {
+    margin-bottom: 0;
+}
+
+.resource-subsection-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.resource-subsection-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 30px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border-radius: 2px;
+}
+
+.resource-cards-container {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.resource-cards {
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.resource-cards::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+.resource-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    min-width: 280px;
+    max-width: 280px;
+    flex-shrink: 0;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.resource-card-image {
+    position: relative;
+    height: 160px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.resource-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.resource-card:hover .resource-card-image img {
+    transform: scale(1.05);
+}
+
+.resource-overlay {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.resource-type {
+    background: rgba(34, 197, 94, 0.9);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.play-button {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #22c55e;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-button:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+.resource-card-content {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 8px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.resource-card-description {
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.resource-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.resource-card-btn {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.resource-card-btn:hover {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+/* Downloadable Cards Specific Styles */
+.downloadable-card .resource-card-image {
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 160px;
+}
+
+.downloadable-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.downloadable-preview i {
+    font-size: 36px;
+    color: #6b7280;
+}
+
+.file-type {
+    background: #22c55e;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.download-btn {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.download-btn:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.resource-view-all {
+    text-align: center;
+    margin-top: 24px;
+}
+
+/* Enhanced scrolling experience */
+.resource-cards {
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.resource-cards::-webkit-scrollbar {
+    display: none;
+}
+
+.resource-card {
+    scroll-snap-align: start;
+}
+
+/* Desktop specific styles */
+@media (min-width: 1024px) {
+    .resource-cards {
+        display: flex;
+        gap: 24px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0 0 16px 0;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: #cbd5e0 #f7fafc;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .resource-cards::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .resource-cards::-webkit-scrollbar-track {
+        background: #f7fafc;
+        border-radius: 3px;
+    }
+    
+    .resource-cards::-webkit-scrollbar-thumb {
+        background: #cbd5e0;
+        border-radius: 3px;
+    }
+    
+    .resource-cards::-webkit-scrollbar-thumb:hover {
+        background: #a0aec0;
+    }
+    
+    .resource-card {
+        min-width: 280px;
+        max-width: 280px;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+    }
+    
+    .resource-cards-container {
+        position: relative;
+    }
+    
+    /* Add fade effect on edges */
+    .resource-cards-container::before,
+    .resource-cards-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 16px;
+        width: 20px;
+        z-index: 2;
+        pointer-events: none;
+    }
+    
+    .resource-cards-container::before {
+        left: 0;
+        background: linear-gradient(90deg, #f9fafb, transparent);
+    }
+    
+    .resource-cards-container::after {
+        right: 0;
+        background: linear-gradient(270deg, #f9fafb, transparent);
+    }
+}
+
+/* Tablet styles */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .resource-cards {
+        padding: 0 20px;
+        gap: 16px;
+    }
+    
+    .resource-card {
+        min-width: 260px;
+        max-width: 260px;
+        height: 360px;
+    }
+    
+    .resource-card-image {
+        height: 140px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+    .resources-section {
+        padding: 60px 0;
+    }
+    
+    .resources-header {
+        margin-bottom: 40px;
+    }
+    
+    .resource-subsection {
+        margin-bottom: 50px;
+    }
+    
+    .resource-subsection-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .resource-cards {
+        padding: 0 20px;
+        gap: 16px;
+    }
+    
+    .resource-card {
+        min-width: 240px;
+        max-width: 240px;
+        height: 340px;
+    }
+    
+    .resource-card-image {
+        height: 120px;
+    }
+    
+    .resource-card-content {
+        padding: 14px;
+    }
+    
+    .resource-card-title {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+    
+    .resource-card-description {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    
+    .resource-card-meta {
+        font-size: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .resource-card-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .resource-view-all {
+        margin-top: 20px;
+    }
+    
+    .downloadable-preview i {
+        font-size: 28px;
+    }
+    
+    .file-type {
+        font-size: 8px;
+        padding: 2px 4px;
+    }
+}
+
+/* Mobile scroll indicators - Single dynamic arrow */
+@media (max-width: 1023px) {
+    .scroll-indicator {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background: rgba(34, 197, 94, 0.95);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+        z-index: 10;
+        pointer-events: none;
+        box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+        opacity: 1;
+        transition: all 0.4s ease;
+        right: 15px;
+    }
+    
+    .scroll-indicator.left {
+        left: 15px;
+        right: auto;
+    }
+    
+    .scroll-indicator.right {
+        right: 15px;
+        left: auto;
+    }
+    
+    .scroll-indicator.fade-out {
+        opacity: 0;
+        transform: translateY(-50%) scale(0.8);
+    }
+    
+    /* Enhanced animation when showing */
+    .scroll-indicator:not(.fade-out) {
+        animation: showArrow 0.5s ease-out;
+    }
+    
+    @keyframes showArrow {
+        0% {
+            opacity: 0;
+            transform: translateY(-50%) scale(0.7);
+        }
+        50% {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(-50%) scale(1);
+        }
+    }
+    
+    /* Subtle pulse effect for better visibility */
+    .scroll-indicator::before {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        border-radius: 50%;
+        border: 2px solid rgba(34, 197, 94, 0.3);
+        animation: subtlePulse 3s ease-in-out infinite;
+    }
+    
+    @keyframes subtlePulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 0.6;
+        }
+        50% {
+            transform: scale(1.1);
+            opacity: 0.3;
+        }
+    }
+    
+    /* Arrow icons styling */
+    .scroll-indicator i {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+/* Completely hide scroll indicators on desktop */
+@media (min-width: 1024px) {
+    .scroll-indicator {
+        display: none !important;
+    }
+}
+
+/* Remove scroll indicators for mobile since we have better fade effects */
+@media (max-width: 1023px) {
+    .resource-cards-container::after,
+    .resource-cards-container::before {
+        display: none;
+    }
+}
+
 /* Smooth scroll behavior */
 html {
     scroll-behavior: smooth;

@@ -398,4 +398,121 @@ document.addEventListener('DOMContentLoaded', function() {
     document.head.appendChild(style);
 
     console.log('Millennial Mamas website loaded successfully! 🎉');
+
+    // Resource Cards Dynamic Scroll Indicators
+    function initDynamicScrollIndicators() {
+        const scrollContainers = document.querySelectorAll('[data-scroll-container]');
+        
+        scrollContainers.forEach(container => {
+            const indicator = container.parentElement.querySelector('.scroll-indicator');
+            if (!indicator) return;
+            
+            let lastScrollLeft = 0;
+            let hideTimeout;
+            let isInteracting = false;
+            
+            // Check if scrolling is possible
+            function canScroll() {
+                return container.scrollWidth > container.clientWidth;
+            }
+            
+            // Update indicator position and visibility
+            function updateIndicator(scrollDirection = null) {
+                if (window.innerWidth >= 1024 || !canScroll()) {
+                    indicator.style.display = 'none';
+                    return;
+                }
+                
+                const scrollLeft = container.scrollLeft;
+                const maxScroll = container.scrollWidth - container.clientWidth;
+                
+                // Show indicator
+                indicator.style.display = 'flex';
+                indicator.classList.remove('fade-out');
+                
+                // Determine direction and position
+                if (scrollDirection === 'right' || (scrollDirection === null && scrollLeft < maxScroll * 0.5)) {
+                    // Show right arrow
+                    indicator.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                    indicator.classList.remove('left');
+                    indicator.classList.add('right');
+                } else {
+                    // Show left arrow
+                    indicator.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                    indicator.classList.remove('right');
+                    indicator.classList.add('left');
+                }
+                
+                // Auto-hide after delay
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => {
+                    if (!isInteracting) {
+                        indicator.classList.add('fade-out');
+                    }
+                }, 2000);
+            }
+            
+            // Handle scroll events
+            container.addEventListener('scroll', function() {
+                const currentScrollLeft = container.scrollLeft;
+                const direction = currentScrollLeft > lastScrollLeft ? 'right' : 'left';
+                
+                updateIndicator(direction);
+                lastScrollLeft = currentScrollLeft;
+            });
+            
+            // Handle touch events
+            container.addEventListener('touchstart', function() {
+                isInteracting = true;
+                updateIndicator();
+            });
+            
+            container.addEventListener('touchend', function() {
+                isInteracting = false;
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => {
+                    indicator.classList.add('fade-out');
+                }, 1500);
+            });
+            
+            // Handle mouse events (for desktop testing)
+            container.addEventListener('mouseenter', function() {
+                if (window.innerWidth < 1024) {
+                    isInteracting = true;
+                    updateIndicator();
+                }
+            });
+            
+            container.addEventListener('mouseleave', function() {
+                if (window.innerWidth < 1024) {
+                    isInteracting = false;
+                    clearTimeout(hideTimeout);
+                    hideTimeout = setTimeout(() => {
+                        indicator.classList.add('fade-out');
+                    }, 1000);
+                }
+            });
+            
+            // Initial setup
+            setTimeout(() => {
+                updateIndicator();
+                // Auto-hide after initial display
+                setTimeout(() => {
+                    if (!isInteracting) {
+                        indicator.classList.add('fade-out');
+                    }
+                }, 3000);
+            }, 500);
+        });
+    }
+    
+    // Initialize dynamic scroll indicators
+    initDynamicScrollIndicators();
+    
+    // Reinitialize on window resize
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(initDynamicScrollIndicators, 250);
+    });
 });
