@@ -346,7 +346,8 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    height: 70vh;
+    min-height: 500px;
     position: relative;
     display: flex;
     align-items: center;
@@ -354,6 +355,7 @@ body {
     background: linear-gradient(135deg, #0f766e 0%, #22c55e 50%, #16a34a 100%);
     overflow: hidden;
     margin-top: 112px; /* Account for fixed navbar */
+    padding: 40px 0;
 }
 
 .hero-background {
@@ -382,47 +384,49 @@ body {
     color: white;
     z-index: 2;
     position: relative;
-    max-width: 800px;
+    max-width: 700px;
     animation: fadeInUp 1s ease-out;
+    padding: 0 20px;
 }
 
 .hero-title {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     line-height: 1.1;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 400;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     opacity: 0.95;
-    line-height: 1.6;
+    line-height: 1.5;
     animation: fadeInUp 1s ease-out 0.4s both;
-    max-width: 600px;
+    max-width: 550px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     justify-content: center;
     animation: fadeInUp 1s ease-out 0.6s both;
+    flex-wrap: wrap;
 }
 
 .btn {
-    padding: 16px 32px;
-    border-radius: 8px;
+    padding: 12px 24px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     transition: all 0.3s ease;
     border: 2px solid transparent;
     position: relative;
@@ -1271,6 +1275,9 @@ body {
 
     .hero {
         margin-top: 70px;
+        height: 60vh;
+        min-height: 450px;
+        padding: 30px 0;
     }
 
     .nav-content {
@@ -1450,30 +1457,30 @@ body {
 
     /* Hero Mobile Styles */
     .hero-title {
-        font-size: 2.8rem;
-        margin-bottom: 20px;
+        font-size: 2.2rem;
+        margin-bottom: 14px;
         line-height: 1.2;
     }
 
     .hero-subtitle {
-        font-size: 1.2rem;
-        margin-bottom: 35px;
+        font-size: 1rem;
+        margin-bottom: 25px;
         padding: 0 20px;
-        line-height: 1.5;
+        line-height: 1.4;
     }
 
     .hero-buttons {
         flex-direction: column;
         align-items: center;
-        gap: 16px;
+        gap: 12px;
         padding: 0 20px;
     }
 
     .btn {
         width: 100%;
-        max-width: 320px;
-        padding: 16px 24px;
-        font-size: 15px;
+        max-width: 280px;
+        padding: 12px 20px;
+        font-size: 13px;
         border-radius: 6px;
     }
 
