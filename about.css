@@ -7,7 +7,7 @@ body {
     background: #f8fafc;
     min-height: 100vh;
     margin: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', 'Inter', sans-serif;
 }
 
 .about-page {
@@ -15,6 +15,7 @@ body {
     margin: 0 auto;
     padding: 15px;
     color: #374151;
+    font-family: 'Montserrat', 'Inter', sans-serif;
 }
 
 /* Back Link */
@@ -199,10 +200,12 @@ body {
     font-size: 15px;
     line-height: 1.6;
     color: #4b5563;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .card-content p {
     margin-bottom: 12px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .highlight-quote {
@@ -215,6 +218,7 @@ body {
     font-size: 14px;
     color: #166534;
     position: relative;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .highlight-quote::before {
@@ -273,6 +277,7 @@ body {
     border-radius: 12px;
     border: 2px solid transparent;
     transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .value-card:nth-child(even) {
@@ -294,12 +299,14 @@ body {
     font-size: 24px;
     margin-bottom: 8px;
     display: block;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .value-name {
     font-weight: 600;
     color: #374151;
     font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* Pillars Section */
@@ -317,19 +324,18 @@ body {
 }
 
 .pillars-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 700;
     color: #1f2937;
     margin-bottom: 16px;
 }
 
 .pillars-subtitle {
-    font-size: 17px;
+    font-size: 16px;
     color: #6b7280;
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 .pillars-container {
@@ -375,6 +381,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
 }
 
 .pillar-header::before {
@@ -405,24 +413,28 @@ body {
     font-weight: 800;
     opacity: 0.2;
     font-family: 'Montserrat', sans-serif;
+    text-align: left;
 }
 
 .pillar-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     margin-bottom: 8px;
     position: relative;
     z-index: 2;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
 }
 
 .pillar-subtitle {
-    font-size: 15px;
+    font-size: 14px;
     opacity: 0.9;
     font-weight: 400;
     position: relative;
     z-index: 2;
     margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
 }
 
 .pillar-content {
@@ -431,9 +443,11 @@ body {
 
 .pillar-content p {
     margin-bottom: 25px;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6b7280;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
 }
 
 .pillar-list {
@@ -443,15 +457,17 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 15px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
 }
 
 .pillar-list li {
     padding: 12px 0;
     padding-left: 30px;
     position: relative;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.6;
-    color: #374151;
+    color: #6b7280;
     transition: color 0.3s ease;
 }
 
@@ -522,11 +538,11 @@ body {
     }
     
     .pillars-title {
-        font-size: 26px;
+        font-size: 24px;
     }
     
     .pillars-subtitle {
-        font-size: 15px;
+        font-size: 14px;
     }
     
     .pillars-container {
@@ -553,11 +569,11 @@ body {
     }
     
     .pillar-title {
-        font-size: 20px;
+        font-size: 18px;
     }
     
     .pillar-subtitle {
-        font-size: 14px;
+        font-size: 13px;
     }
     
     .pillar-list {
@@ -566,7 +582,7 @@ body {
     }
     
     .pillar-list li {
-        font-size: 14px;
+        font-size: 13px;
         padding: 10px 0;
         padding-left: 28px;
     }
@@ -816,23 +832,26 @@ body {
     border: 1px solid #f3f4f6;
 }
 
+
 .leadership-title {
+    font-family: 'Montserrat', sans-serif;
     font-size: 28px;
     font-weight: 700;
     color: #1f2937;
     margin-bottom: 16px;
-    text-align: center;
+    text-align: left;
 }
 
 .leadership-description {
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     line-height: 1.6;
     color: #6b7280;
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .leadership-highlights {
