@@ -861,4 +861,252 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => particle.remove(), 1000);
         }
     }
+
+    // Initialize founders section functionality
+    initFoundersSection();
+
+    // Founders Section Interactive Functionality
+    function initFoundersSection() {
+        // Animate founder cards on scroll
+        const founderCards = document.querySelectorAll('.founder-card');
+        const teamStats = document.querySelectorAll('.team-stat-number');
+        const boardHighlights = document.querySelectorAll('.board-highlight');
+        
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe founder cards
+        founderCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.2}s, transform 0.6s ease ${index * 0.2}s`;
+            observer.observe(card);
+        });
+        
+        // Enhanced hover effects for founder cards
+        founderCards.forEach(card => {
+            const founderImage = card.querySelector('.founder-image img');
+            const founderBadge = card.querySelector('.founder-badge');
+            const highlightTags = card.querySelectorAll('.highlight-tag');
+            
+            card.addEventListener('mouseenter', () => {
+                // Enhanced image scaling
+                founderImage.style.transform = 'scale(1.1)';
+                founderBadge.style.transform = 'scale(1.1) rotate(5deg)';
+                
+                // Animate highlight tags
+                highlightTags.forEach((tag, index) => {
+                    setTimeout(() => {
+                        tag.style.transform = 'translateY(-3px)';
+                        tag.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+                    }, index * 100);
+                });
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                founderImage.style.transform = 'scale(1.05)';
+                founderBadge.style.transform = 'scale(1) rotate(0deg)';
+                
+                highlightTags.forEach(tag => {
+                    tag.style.transform = 'translateY(0)';
+                    tag.style.boxShadow = 'none';
+                });
+            });
+        });
+        
+        // Animated counter for team stats
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        teamStats.forEach(stat => {
+            statsObserver.observe(stat);
+        });
+        
+        // Board highlights interactive effects
+        boardHighlights.forEach((highlight, index) => {
+            highlight.style.opacity = '0';
+            highlight.style.transform = 'translateX(-20px)';
+            highlight.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+            
+            const highlightObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                        highlightObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            highlightObserver.observe(highlight);
+            
+            // Add hover pulse effect
+            highlight.addEventListener('mouseenter', () => {
+                const icon = highlight.querySelector('i');
+                icon.style.transform = 'scale(1.2)';
+                icon.style.transition = 'transform 0.3s ease';
+            });
+            
+            highlight.addEventListener('mouseleave', () => {
+                const icon = highlight.querySelector('i');
+                icon.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Team stats hover effects
+        const teamStatItems = document.querySelectorAll('.team-stat-item');
+        teamStatItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const number = item.querySelector('.team-stat-number');
+                number.style.transform = 'scale(1.1)';
+                number.style.color = '#ec4899';
+                item.style.backgroundColor = '#f8fafc';
+                item.style.borderRadius = '12px';
+                item.style.padding = '20px';
+                item.style.transition = 'all 0.3s ease';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                const number = item.querySelector('.team-stat-number');
+                number.style.transform = 'scale(1)';
+                number.style.color = '#22c55e';
+                item.style.backgroundColor = 'transparent';
+                item.style.padding = '15px';
+            });
+        });
+        
+        // View All Leadership button enhanced interaction
+        const leadershipBtn = document.querySelector('.board-cta .btn');
+        if (leadershipBtn) {
+            leadershipBtn.addEventListener('mouseenter', () => {
+                leadershipBtn.style.transform = 'translateY(-2px)';
+                leadershipBtn.style.boxShadow = '0 8px 25px rgba(34, 197, 94, 0.3)';
+            });
+            
+            leadershipBtn.addEventListener('mouseleave', () => {
+                leadershipBtn.style.transform = 'translateY(0)';
+                leadershipBtn.style.boxShadow = 'none';
+            });
+            
+            leadershipBtn.addEventListener('click', (e) => {
+                // Add click ripple effect
+                createRippleEffect(e, leadershipBtn);
+            });
+        }
+    }
+
+    // Counter animation function
+    function animateCounter(element) {
+        const target = parseInt(element.textContent);
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            
+            if (target >= 1000) {
+                element.textContent = (current / 1000).toFixed(1) + 'k';
+            } else if (element.textContent.includes('+')) {
+                element.textContent = Math.floor(current) + '+';
+            } else {
+                element.textContent = Math.floor(current);
+            }
+        }, 16);
+    }
+
+    // Ripple effect function
+    function createRippleEffect(event, element) {
+        const ripple = document.createElement('span');
+        const rect = element.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = event.clientX - rect.left - size / 2;
+        const y = event.clientY - rect.top - size / 2;
+        
+        ripple.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            left: ${x}px;
+            top: ${y}px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s ease-out;
+            pointer-events: none;
+        `;
+        
+        element.style.position = 'relative';
+        element.style.overflow = 'hidden';
+        element.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    }
+
+    // CSS animation styles (added dynamically)
+    const foundersAnimationStyles = `
+        .founder-card.animate-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .board-highlight.animate-in {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
+        
+        @keyframes ripple {
+            from {
+                transform: scale(0);
+                opacity: 1;
+            }
+            to {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+        
+        .highlight-tag {
+            transition: all 0.3s ease !important;
+        }
+        
+        .team-stat-item {
+            transition: all 0.3s ease !important;
+            cursor: pointer;
+        }
+        
+        .founder-badge {
+            transition: all 0.3s ease !important;
+        }
+    `;
+
+    // Add styles to head
+    if (!document.querySelector('#founders-animations')) {
+        const styleSheet = document.createElement('style');
+        styleSheet.id = 'founders-animations';
+        styleSheet.textContent = foundersAnimationStyles;
+        document.head.appendChild(styleSheet);
+    }
 });
