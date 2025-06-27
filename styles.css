@@ -2744,7 +2744,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 160px;
+       height: 160px;
 }
 
 .downloadable-preview {
@@ -3566,14 +3566,351 @@ html {
     display: contents; /* On desktop, behave as if container doesn't exist */
 }
 
-/* Desktop view - maintain grid layout */
-@media (min-width: 769px) {
-    .footer-mobile-links {
-        display: contents;
+/* Founders & Leadership Section */
+.founders-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f0fdf4 50%, #fdf2f8 100%);
+}
+
+.founders-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.founders-header .section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 16px;
+}
+
+.founders-header .section-subtitle {
+    font-size: 18px;
+    color: #6b7280;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Founders Grid */
+.founders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.founder-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.founder-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #22c55e, #ec4899);
+}
+
+.founder-primary::before {
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.founder-secondary::before {
+    background: linear-gradient(90deg, #ec4899, #be185d);
+}
+
+.founder-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.founder-image {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+}
+
+.founder-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 4px solid #f3f4f6;
+    transition: all 0.3s ease;
+}
+
+.founder-card:hover .founder-image img {
+    transform: scale(1.05);
+    border-color: #22c55e;
+}
+
+.founder-secondary.founder-card:hover .founder-image img {
+    border-color: #ec4899;
+}
+
+.founder-badge {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background: #22c55e;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.founder-secondary .founder-badge {
+    background: #ec4899;
+}
+
+.founder-info {
+    text-align: center;
+}
+
+.founder-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.founder-title {
+    font-size: 16px;
+    color: #22c55e;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.founder-secondary .founder-title {
+    color: #ec4899;
+}
+
+.founder-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.founder-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.highlight-tag {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.founder-secondary .highlight-tag {
+    background: rgba(236, 72, 153, 0.1);
+    color: #ec4899;
+}
+
+/* Team Overview */
+.team-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.team-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.team-stat-item {
+    text-align: center;
+}
+
+.team-stat-number {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: #22c55e;
+    margin-bottom: 8px;
+}
+
+.team-stat-label {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.team-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.team-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 16px;
+}
+
+.team-intro {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #6b7280;
+}
+
+/* Executive Board */
+.executive-board {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.board-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.board-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 12px;
+}
+
+.board-subtitle {
+    font-size: 16px;
+    color: #6b7280;
+}
+
+.board-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.board-description p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+
+.board-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.board-highlight {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: linear-gradient(135deg, #f0fdf4, #fdf2f8);
+    border-radius: 12px;
+    border-left: 4px solid #22c55e;
+}
+
+.board-highlight:nth-child(even) {
+    border-left-color: #ec4899;
+}
+
+.board-highlight i {
+    color: #22c55e;
+    font-size: 18px;
+}
+
+.board-highlight:nth-child(even) i {
+    color: #ec4899;
+}
+
+.board-highlight span {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.board-cta {
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .founders-section {
+        padding: 60px 0;
     }
     
-    .footer-mobile-links .footer-column {
-        /* Reset any mobile-specific styles */
-        text-align: left;
+    .founders-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+    
+    .founder-card {
+        padding: 25px;
+    }
+    
+    .founders-header .section-title {
+        font-size: 28px;
+    }
+    
+    .team-overview {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+    
+    .team-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .team-stat-item {
+        padding: 15px;
+        background: #f9fafb;
+        border-radius: 12px;
+    }
+    
+    .executive-board {
+        padding: 30px 20px;
+    }
+    
+    .board-info {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .board-highlights {
+        grid-template-columns: 1fr;
+    }
+    
+    .board-title {
+        font-size: 24px;
+    }
+    
+    .team-title {
+        font-size: 24px;
     }
 }
