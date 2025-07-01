@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
         setupEventListeners();
         setupFileUpload();
         setupChildrenDetails();
+        // Calculate age if date of birth is already filled
+        calculateAge();
     }
     
     function setupEventListeners() {
@@ -43,8 +45,15 @@ document.addEventListener('DOMContentLoaded', function() {
         employmentRadios.forEach(radio => {
             radio.addEventListener('change', handleEmploymentChange);
         });
+
+        // Date of birth change for age calculation
+        const dateOfBirthInput = document.getElementById('dateOfBirth');
+        if (dateOfBirthInput) {
+            dateOfBirthInput.addEventListener('change', calculateAge);
+            dateOfBirthInput.addEventListener('input', calculateAge);
+        }
     }
-    
+
     function setupFileUpload() {
         const fileInput = document.getElementById('familyPhotos');
         const uploadArea = document.getElementById('familyPhotosUpload');
@@ -375,6 +384,44 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             professionDetails.placeholder = 'Tell us more about your work, business, studies, or current situation...';
         }
+    }
+    
+    function calculateAge() {
+        const dateOfBirthInput = document.getElementById('dateOfBirth');
+        const ageInput = document.getElementById('age');
+        
+        if (!dateOfBirthInput.value) {
+            ageInput.value = '';
+            return;
+        }
+        
+        const birthDate = new Date(dateOfBirthInput.value);
+        const today = new Date();
+        
+        // Check if birth date is in the future
+        if (birthDate > today) {
+            ageInput.value = '';
+            showError('Date of birth cannot be in the future');
+            return;
+        }
+        
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDifference = today.getMonth() - birthDate.getMonth();
+        
+        // Adjust age if birthday hasn't occurred this year
+        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        
+        // Check minimum age requirement (18 years old)
+        if (age < 18) {
+            ageInput.value = age + ' years old';
+            showError('You must be at least 18 years old to join our community');
+            return;
+        }
+        
+        ageInput.value = age + ' years old';
+        clearFieldError(ageInput);
     }
     
     function submitForm(event) {

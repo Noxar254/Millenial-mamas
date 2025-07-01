@@ -396,6 +396,19 @@ html {
     color: var(--primary-green);
 }
 
+/* Form Hint Text */
+.form-hint {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+    font-style: italic;
+}
+
+.form-group:focus-within .form-hint {
+    color: var(--primary-green);
+}
+
 /* Radio Groups */
 .radio-group {
     display: grid;
@@ -679,21 +692,26 @@ html {
     background: var(--white);
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(46, 125, 50, 0.1);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(46, 125, 50, 0.1);
+    position: relative;
+    z-index: 10;
 }
 
 .testimonial-card {
     background: var(--white);
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(46, 125, 50, 0.1);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(46, 125, 50, 0.1);
+    position: relative;
+    z-index: 10;
 }
 
 .benefits-header {
     text-align: center;
     margin-bottom: 2rem;
+    padding: 1rem 0;
 }
 
 .benefits-header i {
@@ -701,12 +719,15 @@ html {
     color: var(--accent-pink);
     display: block;
     margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .benefits-header h3 {
     font-size: 1.8rem;
     color: var(--primary-green);
     margin: 0;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .benefits-list {
@@ -722,15 +743,20 @@ html {
     text-align: center;
     gap: 1rem;
     padding: 1.5rem 1rem;
-    background: linear-gradient(135deg, var(--light-green), var(--light-pink));
+    background: linear-gradient(135deg, rgba(102, 187, 106, 0.1), rgba(248, 187, 217, 0.1));
     border-radius: 15px;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border: 2px solid rgba(46, 125, 50, 0.1);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
 }
 
 .benefit-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.2);
+    background: linear-gradient(135deg, rgba(102, 187, 106, 0.15), rgba(248, 187, 217, 0.15));
+    border-color: var(--primary-green);
+}
     border-color: var(--primary-green);
 }
 
@@ -886,7 +912,7 @@ html {
     }
     
     .membership-main {
-        padding-top: 60px;
+        padding-top: 0;
         margin: 0;
         padding-left: 0;
         padding-right: 0;
@@ -905,7 +931,7 @@ html {
     
     /* Edge-to-edge backgrounds with centered content */
     .membership-header {
-        padding: 70px 0 40px;
+        padding: 40px 0 50px;
         margin: 0;
         width: 100vw;
         position: relative;
@@ -915,22 +941,33 @@ html {
         margin-right: -50vw;
         background: url('images/mamas.avif');
         background-size: cover;
-        background-position: center;
+        background-position: center center;
         background-repeat: no-repeat;
+        background-attachment: scroll;
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .membership-header .container {
-        padding: 0 1rem;
+        padding: 0 1.5rem;
         margin: 0 auto;
         max-width: none;
         width: 100%;
+        position: relative;
+        z-index: 2;
     }
     
     .header-content {
         text-align: center;
-        max-width: 600px;
+        max-width: 500px;
         margin: 0 auto;
-        padding: 0 1rem;
+        padding: 2rem 1rem;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        animation: slideUp 0.8s ease-out;
     }
     
     .breadcrumb {
@@ -957,17 +994,23 @@ html {
     }
     
     .page-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
         padding: 0;
-        margin: 0 0 0.5rem 0;
+        margin: 0 0 0.75rem 0;
         text-align: center;
+        color: #FFFFFF;
+        font-weight: 700;
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+        line-height: 1.2;
     }
     
     .page-subtitle {
-        font-size: 1rem;
-        padding: 0;
+        font-size: 1.1rem;
         margin: 0 0 1.5rem 0;
+        color: #FFFFFF;
+        line-height: 1.5;
         text-align: center;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
     }
     
     .header-features {
@@ -978,6 +1021,39 @@ html {
         margin: 0;
         max-width: 400px;
         margin: 0 auto;
+    }
+    
+    .feature-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 25px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border: 2px solid rgba(46, 125, 50, 0.1);
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--dark-gray);
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+        min-height: 50px;
+    }
+    
+    .feature-item i {
+        color: var(--accent-pink);
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+    
+    .feature-item span {
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     .feature-separator {
@@ -1014,12 +1090,18 @@ html {
         margin-bottom: 1.5rem;
         margin-left: 1rem;
         margin-right: 1rem;
+        background: var(--white);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        border: 2px solid rgba(46, 125, 50, 0.1);
     }
     
     .benefits-card,
     .testimonial-card {
         border-radius: 15px;
         padding: 1.5rem;
+        background: var(--white) !important;
+        position: relative;
+        z-index: 10;
     }
     
     .benefits-header {
@@ -1096,7 +1178,7 @@ html {
 @media (max-width: 480px) {
     /* Small screens with proper content spacing */
     .membership-main {
-        padding-top: 50px;
+        padding-top: 0;
     }
     
     .back-button-container {
@@ -1110,7 +1192,7 @@ html {
     }
     
     .membership-header {
-        padding: 1rem 0 0;
+        padding: 0.5rem 0 0;
         background: url('images/mamas.avif');
         background-size: cover;
         background-position: center;
@@ -1118,22 +1200,39 @@ html {
     }
     
     .header-content {
-        padding: 0 0.5rem;
+        padding: 1rem 0.5rem 0.5rem;
     }
     
     .page-title {
         font-size: 1.75rem;
         margin: 0 0 0.5rem 0;
+        color: #FFFFFF;
+        font-weight: 700;
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
     }
     
     .page-subtitle {
         font-size: 0.95rem;
         margin: 0 0 1rem 0;
+        color: #FFFFFF;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
     }
     
     .header-features {
         padding: 0;
         max-width: 350px;
+        gap: 0.5rem;
+    }
+    
+    .feature-item {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        max-width: 260px;
+        min-height: 45px;
+    }
+    
+    .feature-item i {
+        font-size: 0.9rem;
     }
     
     .form-container {
@@ -1150,12 +1249,18 @@ html {
     .benefits-sidebar .testimonial-card {
         margin-left: 0.75rem;
         margin-right: 0.75rem;
+        background: var(--white);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        border: 2px solid rgba(46, 125, 50, 0.1);
     }
     
     .benefits-card,
     .testimonial-card {
         border-radius: 12px;
         padding: 1rem;
+        background: var(--white) !important;
+        position: relative;
+        z-index: 10;
     }
     
     .benefits-header {
