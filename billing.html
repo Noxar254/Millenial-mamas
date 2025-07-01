@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Millennial Mamas</title>
+    <link rel="stylesheet" href="billing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="images/logo.jpg" alt="Millennial Mamas Logo" class="logo-image">
+                </div>
+                <h1 class="logo-title">Millennial Mamas</h1>
+            </div>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Make a Donation</h1>
+                <p class="hero-subtitle">Your support empowers millennial mothers to thrive. Choose your preferred donation method and make a difference today.</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Donation Options -->
+            <div class="donation-options">
+                <h2 class="section-title">Choose Your Donation Type</h2>
+                <div class="donation-cards">
+                    <div class="donation-card" data-type="one-time">
+                        <div class="card-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>One-Time Gift</h3>
+                        <p>Make a single donation to support our immediate needs</p>
+                        <div class="amount-buttons">
+                            <button class="amount-btn" data-amount="25">$25</button>
+                            <button class="amount-btn" data-amount="50">$50</button>
+                            <button class="amount-btn" data-amount="100">$100</button>
+                            <button class="amount-btn" data-amount="custom">Custom</button>
+                        </div>
+                    </div>
+
+                    <div class="donation-card" data-type="monthly">
+                        <div class="card-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>Monthly Giving</h3>
+                        <p>Provide ongoing support with recurring monthly donations</p>
+                        <div class="amount-buttons">
+                            <button class="amount-btn" data-amount="15">$15/mo</button>
+                            <button class="amount-btn" data-amount="30">$30/mo</button>
+                            <button class="amount-btn" data-amount="50">$50/mo</button>
+                            <button class="amount-btn" data-amount="custom">Custom</button>
+                        </div>
+                    </div>
+
+                    <div class="donation-card" data-type="sponsor">
+                        <div class="card-icon">
+                            <i class="fas fa-user-heart"></i>
+                        </div>
+                        <h3>Sponsor a Mom</h3>
+                        <p>Directly support a mother's journey to independence</p>
+                        <div class="amount-buttons">
+                            <button class="amount-btn" data-amount="100">$100/mo</button>
+                            <button class="amount-btn" data-amount="200">$200/mo</button>
+                            <button class="amount-btn" data-amount="500">$500/mo</button>
+                            <button class="amount-btn" data-amount="custom">Custom</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Form -->
+            <div class="payment-section" id="paymentSection">
+                <div class="payment-container">
+                    <div class="payment-header">
+                        <h2 class="payment-title">Complete Your Donation</h2>
+                        <div class="donation-summary" id="donationSummary">
+                            <span class="donation-type"></span>
+                            <span class="donation-amount"></span>
+                        </div>
+                    </div>
+
+                    <!-- Custom Amount Input -->
+                    <div class="custom-amount-section" id="customAmountSection">
+                        <div class="form-group">
+                            <label for="customAmount" class="form-label">Enter Amount</label>
+                            <div class="amount-input-container">
+                                <span class="currency-symbol">$</span>
+                                <input type="number" id="customAmount" name="customAmount" class="amount-input" placeholder="25.00" min="5" step="0.01">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="payment-methods">
+                        <h3 class="method-title">Choose Payment Method</h3>
+                        <div class="method-tabs">
+                            <button class="method-tab active" data-method="card">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Credit/Debit Card</span>
+                            </button>
+                            <button class="method-tab" data-method="paypal">
+                                <i class="fab fa-paypal"></i>
+                                <span>PayPal</span>
+                            </button>
+                            <button class="method-tab" data-method="mpesa">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>M-Pesa</span>
+                            </button>
+                        </div>
+
+                        <!-- Card Payment Form -->
+                        <div class="payment-form active" id="cardForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cardNumber" class="form-label">Card Number *</label>
+                                <input type="text" id="cardNumber" name="cardNumber" class="form-input card-input" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                                <div class="card-icons">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <i class="fab fa-cc-amex"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiryDate" class="form-label">Expiry Date *</label>
+                                    <input type="text" id="expiryDate" name="expiryDate" class="form-input" placeholder="MM/YY" maxlength="5" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv" class="form-label">CVV *</label>
+                                    <input type="text" id="cvv" name="cvv" class="form-input" placeholder="123" maxlength="4" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="billingAddress" class="form-label">Billing Address</label>
+                                <input type="text" id="billingAddress" name="billingAddress" class="form-input" placeholder="123 Main St">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city" class="form-label">City</label>
+                                    <input type="text" id="city" name="city" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="zipCode" class="form-label">ZIP/Postal Code</label>
+                                    <input type="text" id="zipCode" name="zipCode" class="form-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PayPal Form -->
+                        <div class="payment-form" id="paypalForm">
+                            <div class="paypal-info">
+                                <div class="paypal-icon">
+                                    <i class="fab fa-paypal"></i>
+                                </div>
+                                <h4>Pay with PayPal</h4>
+                                <p>You'll be redirected to PayPal to complete your secure donation.</p>
+                                
+                                <div class="form-group">
+                                    <label for="paypalEmail" class="form-label">Email Address (for receipt) *</label>
+                                    <input type="email" id="paypalEmail" name="paypalEmail" class="form-input" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- M-Pesa Form -->
+                        <div class="payment-form" id="mpesaForm">
+                            <div class="mpesa-info">
+                                <div class="mpesa-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h4>Pay with M-Pesa</h4>
+                                <p>Enter your M-Pesa phone number to receive a payment prompt.</p>
+                                
+                                <div class="form-group">
+                                    <label for="mpesaPhone" class="form-label">M-Pesa Phone Number *</label>
+                                    <input type="tel" id="mpesaPhone" name="mpesaPhone" class="form-input" placeholder="+254 7XX XXX XXX" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mpesaEmail" class="form-label">Email Address (for receipt) *</label>
+                                    <input type="email" id="mpesaEmail" name="mpesaEmail" class="form-input" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Donation Message -->
+                    <div class="donation-message">
+                        <div class="form-group">
+                            <label for="donationMessage" class="form-label">Add a Message (Optional)</label>
+                            <textarea id="donationMessage" name="donationMessage" class="form-textarea" rows="3" placeholder="Share why this cause is important to you..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Terms and Submit -->
+                    <div class="form-footer">
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="terms" required>
+                                <span class="checkmark"></span>
+                                <span class="consent-text">I agree to the <a href="#" class="link">Terms & Conditions</a> and <a href="#" class="link">Privacy Policy</a> *</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter">
+                                <span class="checkmark"></span>
+                                <span class="consent-text">I would like to receive updates about how my donation is making a difference</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="donate-btn" id="donateBtn">
+                            <i class="fas fa-heart"></i>
+                            <span>Complete Donation</span>
+                        </button>
+
+                        <div class="security-info">
+                            <i class="fas fa-lock"></i>
+                            <span>Your payment information is secure and encrypted</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impact Section -->
+            <div class="impact-section">
+                <h2 class="section-title">Your Impact</h2>
+                <div class="impact-cards">
+                    <div class="impact-card">
+                        <div class="impact-amount">$25</div>
+                        <p>Provides essential items for one mother and child</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-amount">$50</div>
+                        <p>Funds one week of childcare support</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-amount">$100</div>
+                        <p>Sponsors job training workshop for 5 mothers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="billing.js"></script>
+</body>
+</html>
