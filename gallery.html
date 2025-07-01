@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Gallery - Millennial Mamas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Back Button -->
+    <div class="back-button-container">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Home</span>
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="gallery-main">
+        <!-- Header Section -->
+        <section class="gallery-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span><i class="fas fa-chevron-right"></i></span>
+                        <span>Event Gallery</span>
+                    </div>
+                    
+                    <div class="header-text">
+                        <h1 class="page-title">Our Event Gallery</h1>
+                        <p class="page-subtitle">Capturing beautiful moments from our community events, workshops, and sisterhood gatherings</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <!-- Gallery Filters -->
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">All Events</button>
+                    <button class="filter-btn" data-filter="workshops">Workshops</button>
+                    <button class="filter-btn" data-filter="hangouts">Hangouts</button>
+                    <button class="filter-btn" data-filter="mental-health">Mental Health</button>
+                    <button class="filter-btn" data-filter="community">Community</button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="gallery-grid">
+                    <!-- Workshop Events -->
+                    <div class="gallery-item" data-category="workshops">
+                        <div class="gallery-image">
+                            <img src="images/mamas.avif" alt="Financial Literacy Workshop">
+                            <div class="gallery-overlay">
+                                <div class="overlay-content">
+                                    <h3 class="event-title">Financial Literacy Workshop</h3>
+                                    <p class="event-date">March 2024</p>
+                                    <p class="event-description">Empowering mothers with financial knowledge and budgeting skills for a secure future.</p>
+                                    <button class="view-btn" onclick="openModal('modal1')" title="View Financial Literacy Workshop details" aria-label="View Financial Literacy Workshop details">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Community Hangout -->
+                    <div class="gallery-item" data-category="hangouts">
+                        <div class="gallery-image">
+                            <img src="images/hangout.jpg" alt="Community Hangout">
+                            <div class="gallery-overlay">
+                                <div class="overlay-content">
+                                    <h3 class="event-title">Community Hangout</h3>
+                                    <p class="event-date">February 2024</p>
+                                    <p class="event-description">A wonderful day of bonding, sharing stories, and building lasting friendships among our mama community.</p>
+                                    <button class="view-btn" onclick="openModal('modal2')" title="View Community Hangout details" aria-label="View Community Hangout details">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mental Health Session -->
+                    <div class="gallery-item" data-category="mental-health">
+                        <div class="gallery-image">
+                            <img src="images/mental health.jpg" alt="Mental Health Support Session">
+                            <div class="gallery-overlay">
+                                <div class="overlay-content">
+                                    <h3 class="event-title">Mental Health Support</h3>
+                                    <p class="event-date">January 2024</p>
+                                    <p class="event-description">Professional counseling and peer support focusing on maternal mental health and wellbeing.</p>
+                                    <button class="view-btn" onclick="openModal('modal3')" title="View Mental Health Support details" aria-label="View Mental Health Support details">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Community Building -->
+                    <div class="gallery-item" data-category="community">
+                        <div class="gallery-image">
+                            <img src="images/community.jpg" alt="Community Building Event">
+                            <div class="gallery-overlay">
+                                <div class="overlay-content">
+                                    <h3 class="event-title">Community Building</h3>
+                                    <p class="event-date">December 2023</p>
+                                    <p class="event-description">Strengthening bonds and creating a supportive network for all mothers in our community.</p>
+                                    <button class="view-btn" onclick="openModal('modal4')" title="View Community Building Event details" aria-label="View Community Building Event details">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Money Management Workshop -->
+                    <div class="gallery-item" data-category="workshops">
+                        <div class="gallery-image">
+                            <img src="images/money.jpg" alt="Money Management Workshop">
+                            <div class="gallery-overlay">
+                                <div class="overlay-content">
+                                    <h3 class="event-title">Money Management</h3>
+                                    <p class="event-date">November 2023</p>
+                                    <p class="event-description">Practical skills for budgeting, saving, and making smart financial decisions as a mother.</p>
+                                    <button class="view-btn" onclick="openModal('modal5')" title="View Money Management Workshop details" aria-label="View Money Management Workshop details">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NGO Collaboration -->
+                    <div class="gallery-item" data-category="community">
+                        <div class="gallery-image">
+                            <img src="images/NGO Single.jpg" alt="NGO Partnership Event">
+                            <div class="gallery-overlay">
+                                <div class="overlay-content">
+                                    <h3 class="event-title">NGO Partnership</h3>
+                                    <p class="event-date">October 2023</p>
+                                    <p class="event-description">Collaborating with local organizations to expand our reach and impact in the community.</p>
+                                    <button class="view-btn" onclick="openModal('modal6')" title="View NGO Partnership Event details" aria-label="View NGO Partnership Event details">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-section">
+                    <button class="load-more-btn">
+                        <i class="fas fa-plus-circle"></i>
+                        Load More Events
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="gallery-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Want to Be Part of Our Next Event?</h2>
+                    <p class="cta-description">Join our community and be featured in our next gallery! Connect with amazing mothers and create lasting memories.</p>
+                    <div class="cta-buttons">
+                        <a href="membership-form.html" class="btn btn-primary">Join Our Community</a>
+                        <a href="index.html#contact" class="btn btn-secondary">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Image Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <img src="images/mamas.avif" alt="Financial Literacy Workshop" class="modal-image">
+            <div class="modal-info">
+                <h3>Financial Literacy Workshop</h3>
+                <p class="modal-date">March 15, 2024</p>
+                <p class="modal-description">Our comprehensive financial literacy workshop brought together 45 mothers to learn about budgeting, saving, and investment strategies. Expert financial advisors shared practical tips on managing household finances, building emergency funds, and planning for children's education. The interactive sessions included real-life scenarios and group discussions that empowered participants to take control of their financial futures.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <img src="images/hangout.jpg" alt="Community Hangout" class="modal-image">
+            <div class="modal-info">
+                <h3>Community Hangout</h3>
+                <p class="modal-date">February 20, 2024</p>
+                <p class="modal-description">A beautiful afternoon spent in the park where 60+ mothers and their children came together for fellowship and fun. The event featured picnic-style meals, children's games, storytelling sessions, and informal networking. It was heartwarming to see new friendships form and existing bonds strengthen as mothers shared their experiences and supported each other in a relaxed, joyful environment.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <img src="images/mental health.jpg" alt="Mental Health Support Session" class="modal-image">
+            <div class="modal-info">
+                <h3>Mental Health Support Session</h3>
+                <p class="modal-date">January 25, 2024</p>
+                <p class="modal-description">Led by licensed therapists and counselors, this session focused on maternal mental health awareness and support. Topics included postpartum depression, anxiety management, stress coping mechanisms, and building resilience. The safe space allowed mothers to share their struggles openly and receive professional guidance alongside peer support from other mothers who understood their journey.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal4')">&times;</span>
+            <img src="images/community.jpg" alt="Community Building Event" class="modal-image">
+            <div class="modal-info">
+                <h3>Community Building Event</h3>
+                <p class="modal-date">December 10, 2023</p>
+                <p class="modal-description">An impactful day dedicated to strengthening our community bonds through team-building activities, collaborative projects, and vision-sharing sessions. Mothers worked together on community service projects, participated in group discussions about our collective goals, and celebrated our achievements as a sisterhood. The event reinforced our commitment to supporting each other through all seasons of motherhood.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal5')">&times;</span>
+            <img src="images/money.jpg" alt="Money Management Workshop" class="modal-image">
+            <div class="modal-info">
+                <h3>Money Management Workshop</h3>
+                <p class="modal-date">November 18, 2023</p>
+                <p class="modal-description">This hands-on workshop equipped mothers with essential money management skills through practical exercises and real-world applications. Participants learned about creating effective budgets, tracking expenses, understanding credit, and building savings habits. Guest speakers included successful entrepreneur mothers who shared their financial journeys and provided mentorship on balancing motherhood with financial independence.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal6')">&times;</span>
+            <img src="images/NGO Single.jpg" alt="NGO Partnership Event" class="modal-image">
+            <div class="modal-info">
+                <h3>NGO Partnership Event</h3>
+                <p class="modal-date">October 5, 2023</p>
+                <p class="modal-description">A meaningful collaboration with local NGOs focused on single mothers and vulnerable families. The partnership event facilitated resource sharing, skill development programs, and expanded support networks. Together, we launched initiatives for educational scholarships, micro-financing opportunities, and mentorship programs that continue to benefit mothers in our extended community network.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="gallery.js"></script>
+</body>
+</html>
