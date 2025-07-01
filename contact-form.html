@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Millennial Mamas</title>
+    <link rel="stylesheet" href="contact-form.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="images/logo.jpg" alt="Millennial Mamas Logo" class="logo-image">
+                </div>
+                <h1 class="logo-title">Millennial Mamas</h1>
+            </div>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Get In Touch</h1>
+                <p class="hero-subtitle">Ready to make a difference? Whether you want to volunteer, partner with us, donate, or just have a question - we're here to help you get involved!</p>
+                <button class="hero-cta-btn" onclick="document.getElementById('contactForm').scrollIntoView({behavior: 'smooth'})">
+                    Start Your Journey
+                </button>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Header Section -->
+            <div class="form-header">
+                <h1 class="form-title">Contact Form</h1>
+                <p class="form-subtitle">Fill out the form below and we'll get back to you within 2-3 business days.</p>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="form-container">
+                <form class="contact-form" id="contactForm">
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h2 class="section-title">Personal Information</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enquiry Details -->
+                    <div class="form-section">
+                        <h2 class="section-title">Enquiry Details</h2>
+                        
+                        <div class="form-group">
+                            <label for="enquiryType" class="form-label">Type of Enquiry *</label>
+                            <select id="enquiryType" name="enquiryType" class="form-select" required>
+                                <option value="">Please select...</option>
+                                <option value="volunteer">Volunteer With Us</option>
+                                <option value="partner">Partner With Us</option>
+                                <option value="donate">Donation Enquiry</option>
+                                <option value="membership">Membership Information</option>
+                                <option value="programs">Program Information</option>
+                                <option value="events">Event Information</option>
+                                <option value="general">General Enquiry</option>
+                                <option value="media">Media/Press Enquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder="Brief description of your enquiry" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="6" placeholder="Please provide details about your enquiry, questions, or how you'd like to get involved..." required></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information (conditional) -->
+                    <div class="form-section conditional-section" id="volunteerSection">
+                        <h2 class="section-title">Volunteer Information</h2>
+                        
+                        <div class="form-group">
+                            <label for="volunteerAreas" class="form-label">Areas of Interest</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="volunteerAreas" value="events">
+                                    <span class="checkmark"></span>
+                                    Event Coordination
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="volunteerAreas" value="mentorship">
+                                    <span class="checkmark"></span>
+                                    Mentorship Programs
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="volunteerAreas" value="outreach">
+                                    <span class="checkmark"></span>
+                                    Community Outreach
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="volunteerAreas" value="admin">
+                                    <span class="checkmark"></span>
+                                    Administrative Support
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="volunteerAreas" value="social-media">
+                                    <span class="checkmark"></span>
+                                    Social Media & Marketing
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="volunteerAreas" value="fundraising">
+                                    <span class="checkmark"></span>
+                                    Fundraising
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="availability" class="form-label">Availability</label>
+                                <select id="availability" name="availability" class="form-select">
+                                    <option value="">Please select...</option>
+                                    <option value="weekdays">Weekdays</option>
+                                    <option value="weekends">Weekends</option>
+                                    <option value="both">Both Weekdays & Weekends</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="volunteerExperience" class="form-label">Years of Relevant Experience</label>
+                                <select id="volunteerExperience" name="volunteerExperience" class="form-select">
+                                    <option value="">Please select...</option>
+                                    <option value="0-1">0-1 years</option>
+                                    <option value="1-3">1-3 years</option>
+                                    <option value="3-5">3-5 years</option>
+                                    <option value="5-10">5-10 years</option>
+                                    <option value="10+">10+ years</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cvUpload" class="form-label">Upload Your CV/Resume *</label>
+                            <div class="file-upload-container">
+                                <input type="file" id="cvUpload" name="cvUpload" class="file-input" accept=".pdf,.doc,.docx" required>
+                                <label for="cvUpload" class="file-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span class="file-upload-text">Choose CV/Resume File</span>
+                                    <span class="file-upload-note">PDF, DOC, or DOCX (Max 5MB)</span>
+                                </label>
+                                <div class="file-upload-status"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="portfolioLink" class="form-label">Portfolio/LinkedIn URL</label>
+                                <input type="url" id="portfolioLink" name="portfolioLink" class="form-input" placeholder="https://linkedin.com/in/yourprofile or your portfolio website">
+                            </div>
+                            <div class="form-group">
+                                <label for="volunteerMotivation" class="form-label">Why do you want to volunteer with us?</label>
+                                <textarea id="volunteerMotivation" name="volunteerMotivation" class="form-textarea" rows="3" placeholder="Tell us what motivates you to volunteer with Millennial Mamas..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="skillsExpertise" class="form-label">Skills & Expertise</label>
+                            <textarea id="skillsExpertise" name="skillsExpertise" class="form-textarea" rows="3" placeholder="Describe your relevant skills, expertise, and any special qualifications..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="volunteerCommitment" class="form-label">Time Commitment</label>
+                            <select id="volunteerCommitment" name="volunteerCommitment" class="form-select">
+                                <option value="">Please select...</option>
+                                <option value="2-4 hours/week">2-4 hours per week</option>
+                                <option value="4-8 hours/week">4-8 hours per week</option>
+                                <option value="8-15 hours/week">8-15 hours per week</option>
+                                <option value="15+ hours/week">15+ hours per week</option>
+                                <option value="project-based">Project-based availability</option>
+                                <option value="event-only">Event-only participation</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section conditional-section" id="partnerSection">
+                        <h2 class="section-title">Partnership Information</h2>
+                        
+                        <div class="form-group">
+                            <label for="organizationType" class="form-label">Organization Type</label>
+                            <select id="organizationType" name="organizationType" class="form-select">
+                                <option value="">Please select...</option>
+                                <option value="nonprofit">Non-profit Organization</option>
+                                <option value="corporate">Corporate/Business</option>
+                                <option value="government">Government Agency</option>
+                                <option value="educational">Educational Institution</option>
+                                <option value="healthcare">Healthcare Organization</option>
+                                <option value="community">Community Group</option>
+                                <option value="individual">Individual</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="organizationName" class="form-label">Organization Name</label>
+                            <input type="text" id="organizationName" name="organizationName" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="partnershipType" class="form-label">Type of Partnership</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="partnershipType" value="strategic">
+                                    <span class="checkmark"></span>
+                                    Strategic Partnership
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="partnershipType" value="sponsorship">
+                                    <span class="checkmark"></span>
+                                    Corporate Sponsorship
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="partnershipType" value="resource-sharing">
+                                    <span class="checkmark"></span>
+                                    Resource Sharing
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="partnershipType" value="program-development">
+                                    <span class="checkmark"></span>
+                                    Joint Program Development
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="partnershipType" value="venue">
+                                    <span class="checkmark"></span>
+                                    Venue/Space Provision
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section conditional-section" id="donateSection">
+                        <h2 class="section-title">Donation Information</h2>
+                        
+                        <div class="form-group">
+                            <label for="donationType" class="form-label">Type of Donation</label>
+                            <select id="donationType" name="donationType" class="form-select">
+                                <option value="">Please select...</option>
+                                <option value="one-time">One-Time Donation</option>
+                                <option value="monthly">Monthly Giving</option>
+                                <option value="sponsor-mom">Sponsor a Mom</option>
+                                <option value="essentials">Give Essentials</option>
+                                <option value="in-kind">In-Kind Donation</option>
+                                <option value="fundraising">Fundraising Event</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donationAmount" class="form-label">Intended Donation Amount (Optional)</label>
+                            <select id="donationAmount" name="donationAmount" class="form-select">
+                                <option value="">Please select...</option>
+                                <option value="10-50">$10 - $50</option>
+                                <option value="50-100">$50 - $100</option>
+                                <option value="100-500">$100 - $500</option>
+                                <option value="500-1000">$500 - $1,000</option>
+                                <option value="1000+">$1,000+</option>
+                                <option value="other">Other Amount</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Privacy and Consent -->
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label class="checkbox-label consent-checkbox">
+                                <input type="checkbox" name="consent" required>
+                                <span class="checkmark"></span>
+                                <span class="consent-text">I consent to Millennial Mamas storing and processing my personal data to respond to my enquiry. I understand my data will be handled in accordance with the privacy policy. *</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter">
+                                <span class="checkmark"></span>
+                                <span class="consent-text">I would like to receive updates, newsletters, and information about Millennial Mamas programs and events.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-submit">
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Send Message</span>
+                        </button>
+                        <p class="submit-note">We'll get back to you within 2-3 business days.</p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p>info@millenialmamas.org</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p>+254 713 078 161</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Response Time</h3>
+                        <p>2-3 Business Days</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="contact-form.js"></script>
+</body>
+</html>
