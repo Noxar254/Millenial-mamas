@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Community - Millennial Mamas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="support.css">
+    <link rel="stylesheet" href="membership-form.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Back Button -->
+    <div class="back-button-container">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Home</span>
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="membership-main">
+        <!-- Header Section -->
+        <section class="membership-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span><i class="fas fa-chevron-right"></i></span>
+                        <span>Join Our Community</span>
+                    </div>
+                    
+                    <div class="header-text">
+                        <h1 class="page-title">Join Our Community</h1>
+                        <p class="page-subtitle">Welcome to the Millennial Mamas family! Fill out this form to become part of our supportive sisterhood.</p>
+                    </div>
+
+                    <div class="header-features">
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <span>Join 500+ Mothers</span>
+                        </div>
+                        <div class="feature-separator">•</div>
+                        <div class="feature-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Find Your Support System</span>
+                        </div>
+                        <div class="feature-separator">•</div>
+                        <div class="feature-item">
+                            <i class="fas fa-star"></i>
+                            <span>Access Exclusive Resources</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Membership Form Section -->
+        <section class="membership-form-section">
+            <div class="container">
+                <div class="form-container">
+                    <div class="form-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-steps">
+                            <div class="step active" data-step="1">
+                                <div class="step-number">1</div>
+                                <div class="step-label">Personal Info</div>
+                            </div>
+                            <div class="step" data-step="2">
+                                <div class="step-number">2</div>
+                                <div class="step-label">Family Details</div>
+                            </div>
+                            <div class="step" data-step="3">
+                                <div class="step-number">3</div>
+                                <div class="step-label">Professional Info</div>
+                            </div>
+                            <div class="step" data-step="4">
+                                <div class="step-number">4</div>
+                                <div class="step-label">Community Connection</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="membership-form" id="membershipForm" enctype="multipart/form-data">
+                        <!-- Step 1: Personal Information -->
+                        <div class="form-step active" data-step="1">
+                            <div class="step-header">
+                                <h2 class="step-title">Personal Information</h2>
+                                <p class="step-description">Let's start with some basic information about you</p>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label for="fullName" class="form-label">Full Name <span class="required">*</span></label>
+                                    <input type="text" id="fullName" name="fullName" class="form-input" required>
+                                    <div class="input-icon">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="age" class="form-label">How old are you? <span class="required">*</span></label>
+                                    <input type="number" id="age" name="age" class="form-input" min="18" max="100" required>
+                                    <div class="input-icon">
+                                        <i class="fas fa-calendar"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                    <div class="input-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number <span class="required">*</span></label>
+                                    <input type="tel" id="phone" name="phone" class="form-input" required>
+                                    <div class="input-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="residence" class="form-label">Place of Residence <span class="required">*</span></label>
+                                    <input type="text" id="residence" name="residence" class="form-input" placeholder="City, Country" required>
+                                    <div class="input-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Family Details -->
+                        <div class="form-step" data-step="2">
+                            <div class="step-header">
+                                <h2 class="step-title">Family Details</h2>
+                                <p class="step-description">Tell us about your beautiful family</p>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label for="childrenCount" class="form-label">How many children do you have? <span class="required">*</span></label>
+                                    <input type="number" id="childrenCount" name="childrenCount" class="form-input" min="0" max="20" required>
+                                    <div class="input-icon">
+                                        <i class="fas fa-baby"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group full-width" id="childrenDetailsGroup">
+                                    <label class="form-label">Please share with us their Names, Birthdays and Age <span class="required">*</span></label>
+                                    <div id="childrenDetails">
+                                        <!-- Dynamic children details will be added here -->
+                                    </div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="familyPhotos" class="form-label">Family Photos (Optional)</label>
+                                    <div class="file-upload-area" id="familyPhotosUpload">
+                                        <input type="file" id="familyPhotos" name="familyPhotos" multiple accept="image/*" class="file-input">
+                                        <div class="upload-content">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            <p class="upload-text">Click to upload or drag and drop</p>
+                                            <p class="upload-subtext">PNG, JPG up to 5MB each</p>
+                                        </div>
+                                    </div>
+                                    <div class="uploaded-files" id="uploadedFiles"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Professional Information -->
+                        <div class="form-step" data-step="3">
+                            <div class="step-header">
+                                <h2 class="step-title">Professional Information</h2>
+                                <p class="step-description">Help us understand your professional background</p>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label class="form-label">What do you do for a living? <span class="required">*</span></label>
+                                    <div class="radio-group">
+                                        <div class="radio-item">
+                                            <input type="radio" id="employed" name="employmentStatus" value="employed" required>
+                                            <label for="employed" class="radio-label">
+                                                <i class="fas fa-briefcase"></i>
+                                                <span>Employed</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio-item">
+                                            <input type="radio" id="selfEmployed" name="employmentStatus" value="selfEmployed" required>
+                                            <label for="selfEmployed" class="radio-label">
+                                                <i class="fas fa-user-tie"></i>
+                                                <span>Self Employed</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio-item">
+                                            <input type="radio" id="student" name="employmentStatus" value="student" required>
+                                            <label for="student" class="radio-label">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>Student</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio-item">
+                                            <input type="radio" id="jobSeeking" name="employmentStatus" value="jobSeeking" required>
+                                            <label for="jobSeeking" class="radio-label">
+                                                <i class="fas fa-search"></i>
+                                                <span>Looking for a Job</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio-item">
+                                            <input type="radio" id="other" name="employmentStatus" value="other" required>
+                                            <label for="other" class="radio-label">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                                <span>Other</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="professionDetails" class="form-label">Please share the details of what you do for a living <span class="required">*</span></label>
+                                    <textarea id="professionDetails" name="professionDetails" class="form-textarea" rows="4" placeholder="Tell us more about your work, business, studies, or current situation..." required></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Community Connection -->
+                        <div class="form-step" data-step="4">
+                            <div class="step-header">
+                                <h2 class="step-title">Community Connection</h2>
+                                <p class="step-description">Help us understand your journey and how we can support you better</p>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label for="howYouKnow" class="form-label">How did you know about Millennial Mamas? <span class="required">*</span></label>
+                                    <textarea id="howYouKnow" name="howYouKnow" class="form-textarea" rows="3" placeholder="Social media, friend referral, event, website, etc..." required></textarea>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="experience" class="form-label">What has been your experience with Millennial Mamas? <span class="required">*</span></label>
+                                    <textarea id="experience" name="experience" class="form-textarea" rows="4" placeholder="Share your experience with our programs, events, or community..." required></textarea>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="futureImpact" class="form-label">How can Millennial Mamas have more impact in your life? <span class="required">*</span></label>
+                                    <textarea id="futureImpact" name="futureImpact" class="form-textarea" rows="4" placeholder="What support, programs, or resources would be most helpful for you?" required></textarea>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <div class="consent-section">
+                                        <div class="consent-item">
+                                            <input type="checkbox" id="dataConsent" name="dataConsent" required>
+                                            <label for="dataConsent" class="consent-label">
+                                                I consent to Millennial Mamas using my information to provide me with community updates, program information, and support resources. <span class="required">*</span>
+                                            </label>
+                                        </div>
+                                        <div class="consent-item">
+                                            <input type="checkbox" id="photoConsent" name="photoConsent">
+                                            <label for="photoConsent" class="consent-label">
+                                                I consent to having my photos used in Millennial Mamas promotional materials and social media (optional).
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Navigation -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-secondary hidden" id="prevBtn">
+                                <i class="fas fa-chevron-left"></i>
+                                Previous
+                            </button>
+                            <button type="button" class="btn btn-primary" id="nextBtn">
+                                Next
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button type="submit" class="btn btn-success hidden" id="submitBtn">
+                                <i class="fas fa-paper-plane"></i>
+                                Join Our Community
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Community Benefits Sidebar -->
+                <div class="benefits-sidebar">
+                    <div class="benefits-card">
+                        <div class="benefits-header">
+                            <i class="fas fa-heart"></i>
+                            <h3>What You'll Get</h3>
+                        </div>
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <i class="fas fa-users"></i>
+                                <div class="benefit-content">
+                                    <h4>Supportive Community</h4>
+                                    <p>Connect with like-minded mothers who understand your journey</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-calendar-check"></i>
+                                <div class="benefit-content">
+                                    <h4>Exclusive Events</h4>
+                                    <p>Priority access to workshops, hangouts, and wellness sessions</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div class="benefit-content">
+                                    <h4>Learning Resources</h4>
+                                    <p>Access to financial literacy, parenting tips, and self-care guides</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-hands-helping"></i>
+                                <div class="benefit-content">
+                                    <h4>Mental Health Support</h4>
+                                    <p>Professional counseling and peer support groups</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-star"></i>
+                                <div class="benefit-content">
+                                    <h4>Personal Growth</h4>
+                                    <p>Mentorship opportunities and skill development programs</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Joining Millennial Mamas changed my life. I found my voice, my confidence, and most importantly, my sisterhood."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4 class="author-name">Sarah M.</h4>
+                                    <p class="author-role">Mother of 2, Member since 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="membership-form.js"></script>
+</body>
+</html>

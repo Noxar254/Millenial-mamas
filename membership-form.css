@@ -1,0 +1,1225 @@
+/* Membership Form Styles */
+
+/* Form-specific reset to minimize top spacing */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Override any inherited spacing */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Color Palette */
+    --primary-green: #2E7D32;
+    --light-green: #66BB6A;
+    --accent-yellow: #FFC107;
+    --light-yellow: #FFF59D;
+    --accent-pink: #E91E63;
+    --light-pink: #F8BBD9;
+    --white: #FFFFFF;
+    --light-gray: #F5F5F5;
+    --medium-gray: #9E9E9E;
+    --dark-gray: #424242;
+    --success-green: #4CAF50;
+    --error-red: #F44336;
+}
+
+/* Back Button */
+.back-button-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin: 0;
+    padding: 15px 20px;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #E91E63;
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+    border: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.back-button:hover {
+    background: #C2185B;
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+}
+
+.back-button i {
+    font-size: 1rem;
+}
+
+/* Main Layout */
+.membership-main {
+    min-height: 100vh;
+    background: var(--white);
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* Header Section */
+.membership-header {
+    padding: 80px 0 60px;
+    background: url('images/mamas.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.header-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.breadcrumb a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.breadcrumb a:hover {
+    color: var(--accent-yellow);
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.header-features {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+}
+
+@media (max-width: 768px) {
+    .header-features {
+        flex-wrap: wrap;
+    }
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+}
+
+.feature-item i {
+    color: var(--accent-pink);
+    font-size: 0.9rem;
+}
+
+.feature-item span {
+    color: #2E2E2E;
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.feature-separator {
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    line-height: 1;
+}
+
+.feature-item:hover {
+    border-color: var(--accent-yellow);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Form Section */
+.membership-form-section {
+    padding: 2rem 0 0;
+}
+
+.membership-form-section .container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 1400px;
+}
+
+.form-container {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-green), var(--accent-yellow), var(--accent-pink));
+}
+
+/* Progress Bar */
+.form-progress {
+    margin-bottom: 2rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--light-gray);
+    border-radius: 3px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-green), var(--accent-yellow));
+    border-radius: 3px;
+    width: 25%;
+    transition: width 0.5s ease;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--light-gray);
+    color: var(--medium-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.step.active .step-number {
+    background: linear-gradient(45deg, var(--primary-green), var(--accent-yellow));
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+}
+
+.step-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--medium-gray);
+    text-align: center;
+}
+
+.step.active .step-label {
+    color: var(--primary-green);
+}
+
+/* Form Steps */
+.form-step {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.form-step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.step-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+}
+
+.step-description {
+    color: var(--medium-gray);
+    font-size: 1.1rem;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+}
+
+.required {
+    color: var(--accent-pink);
+}
+
+/* Form Inputs */
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid var(--light-gray);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+    font-family: inherit;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.form-input.error,
+.form-textarea.error {
+    border-color: var(--error-red);
+    box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--medium-gray);
+    pointer-events: none;
+    margin-top: 12px;
+}
+
+.form-group:focus-within .input-icon {
+    color: var(--primary-green);
+}
+
+/* Radio Groups */
+.radio-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.radio-item {
+    position: relative;
+}
+
+.radio-item input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border: 2px solid var(--light-gray);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.radio-label:hover {
+    border-color: var(--accent-yellow);
+    background: var(--light-yellow);
+}
+
+.radio-item input[type="radio"]:checked + .radio-label {
+    border-color: var(--primary-green);
+    background: linear-gradient(135deg, var(--light-green), var(--light-yellow));
+    color: var(--dark-gray);
+}
+
+.radio-label i {
+    font-size: 1.2rem;
+    color: var(--accent-pink);
+}
+
+/* File Upload */
+.file-upload-area {
+    border: 2px dashed var(--light-gray);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--light-gray);
+}
+
+.file-upload-area:hover {
+    border-color: var(--accent-yellow);
+    background: var(--light-yellow);
+}
+
+.file-upload-area.dragover {
+    border-color: var(--primary-green);
+    background: var(--light-green);
+}
+
+.file-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.upload-content i {
+    font-size: 2.5rem;
+    color: var(--accent-pink);
+    margin-bottom: 1rem;
+}
+
+.upload-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+}
+
+.upload-subtext {
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+}
+
+.uploaded-files {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.uploaded-file {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--light-green);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--white);
+}
+
+.uploaded-file button {
+    background: none;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Children Details */
+.child-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr 100px;
+    gap: 1rem;
+    align-items: end;
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--accent-pink);
+}
+
+.child-detail:last-child {
+    margin-bottom: 0;
+}
+
+.child-detail .form-group {
+    margin-bottom: 0;
+}
+
+.remove-child {
+    background: var(--error-red);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: fit-content;
+}
+
+.remove-child:hover {
+    background: #d32f2f;
+    transform: scale(1.05);
+}
+
+/* Consent Section */
+.consent-section {
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-yellow);
+}
+
+.consent-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.consent-item:last-child {
+    margin-bottom: 0;
+}
+
+.consent-item input[type="checkbox"] {
+    margin-top: 0.25rem;
+    transform: scale(1.2);
+    accent-color: var(--primary-green);
+}
+
+.consent-label {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--dark-gray);
+}
+
+/* Form Navigation */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--light-gray);
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-green), var(--light-green));
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, var(--accent-yellow), #FFD54F);
+    color: var(--dark-gray);
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(45deg, var(--success-green), var(--light-green));
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Navigation Button Visibility */
+#prevBtn.hidden,
+#submitBtn.hidden {
+    display: none !important;
+}
+
+/* Benefits Sidebar */
+.benefits-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.benefits-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(46, 125, 50, 0.1);
+}
+
+.testimonial-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(46, 125, 50, 0.1);
+}
+
+.benefits-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.benefits-header i {
+    font-size: 2.5rem;
+    color: var(--accent-pink);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.benefits-header h3 {
+    font-size: 1.8rem;
+    color: var(--primary-green);
+    margin: 0;
+}
+
+.benefits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.benefit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+    background: linear-gradient(135deg, var(--light-green), var(--light-pink));
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+    border-color: var(--primary-green);
+}
+
+.benefit-item i {
+    font-size: 2rem;
+    color: var(--primary-green);
+    background: var(--white);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+}
+
+.benefit-content h4 {
+    font-size: 1rem;
+    color: var(--primary-green);
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.benefit-content p {
+    font-size: 0.85rem;
+    color: var(--dark-gray);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Testimonial Card */
+.testimonial-content {
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 2rem;
+    color: var(--accent-yellow);
+    margin-bottom: 1rem;
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-info h4 {
+    font-size: 1rem;
+    color: var(--primary-green);
+    margin: 0;
+    font-weight: 600;
+}
+
+.author-info p {
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+    margin: 0;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    animation: pulse 0.3s ease;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.benefit-item:nth-child(odd) {
+    animation: slideInFromLeft 0.6s ease forwards;
+}
+
+.benefit-item:nth-child(even) {
+    animation: slideInFromRight 0.6s ease forwards;
+}
+
+/* Responsive Design */
+@media (min-width: 1200px) {
+    .form-container {
+        padding: 2rem;
+    }
+    
+    .form-grid {
+        gap: 1.25rem;
+    }
+    
+    .step-header {
+        margin-bottom: 1.75rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .membership-form-section .container {
+        gap: 2rem;
+        max-width: 800px;
+    }
+    
+    .benefits-list {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+    
+    .benefit-item {
+        padding: 1.25rem 0.75rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .header-features {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Edge-to-edge sections with proper content spacing */
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .membership-main {
+        padding-top: 60px;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .back-button-container {
+        top: 10px;
+        left: 10px;
+        z-index: 1001;
+    }
+    
+    .back-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Edge-to-edge backgrounds with centered content */
+    .membership-header {
+        padding: 70px 0 40px;
+        margin: 0;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        background: url('images/mamas.avif');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    .membership-header .container {
+        padding: 0 1rem;
+        margin: 0 auto;
+        max-width: none;
+        width: 100%;
+    }
+    
+    .header-content {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    
+    .breadcrumb {
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .membership-form-section {
+        padding: 1rem 0 0;
+        margin: 0;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+    
+    .membership-form-section .container {
+        padding: 0 1rem;
+        margin: 0 auto;
+        max-width: none;
+        width: 100%;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+        padding: 0;
+        margin: 0 0 0.5rem 0;
+        text-align: center;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem;
+        padding: 0;
+        margin: 0 0 1.5rem 0;
+        text-align: center;
+    }
+    
+    .header-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0;
+        margin: 0;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .feature-separator {
+        display: none;
+    }
+    
+    .form-container {
+        padding: 1.5rem 1rem;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: var(--white);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    /* Benefits section with edge-to-edge background */
+    .benefits-sidebar {
+        margin: 0;
+        gap: 1.5rem;
+        padding: 1rem 0 0;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+    
+    .benefits-sidebar .benefits-card,
+    .benefits-sidebar .testimonial-card {
+        max-width: 800px;
+        margin: 0 auto;
+        margin-bottom: 1.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    
+    .benefits-card,
+    .testimonial-card {
+        border-radius: 15px;
+        padding: 1.5rem;
+    }
+    
+    .benefits-header {
+        padding: 0;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .radio-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .child-detail {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .progress-steps {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .step {
+        flex: 1;
+        min-width: 80px;
+    }
+    
+    .step-label {
+        font-size: 0.75rem;
+    }
+    
+    .benefits-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .benefit-item {
+        flex: none;
+        width: 100%;
+        padding: 1rem 0.75rem;
+    }
+    
+    .benefit-item i {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .benefit-content h4 {
+        font-size: 0.9rem;
+    }
+    
+    .benefit-content p {
+        font-size: 0.8rem;
+    }
+    
+    .form-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Small screens with proper content spacing */
+    .membership-main {
+        padding-top: 50px;
+    }
+    
+    .back-button-container {
+        top: 8px;
+        left: 8px;
+    }
+    
+    .back-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .membership-header {
+        padding: 1rem 0 0;
+        background: url('images/mamas.avif');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    .header-content {
+        padding: 0 0.5rem;
+    }
+    
+    .page-title {
+        font-size: 1.75rem;
+        margin: 0 0 0.5rem 0;
+    }
+    
+    .page-subtitle {
+        font-size: 0.95rem;
+        margin: 0 0 1rem 0;
+    }
+    
+    .header-features {
+        padding: 0;
+        max-width: 350px;
+    }
+    
+    .form-container {
+        padding: 1rem 0.75rem;
+        border-radius: 0;
+        max-width: 500px;
+    }
+    
+    .benefits-sidebar {
+        padding: 1rem 0 0;
+    }
+    
+    .benefits-sidebar .benefits-card,
+    .benefits-sidebar .testimonial-card {
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+    }
+    
+    .benefits-card,
+    .testimonial-card {
+        border-radius: 12px;
+        padding: 1rem;
+    }
+    
+    .benefits-header {
+        margin-bottom: 1rem;
+    }
+    
+    .step-title {
+        font-size: 1.5rem;
+    }
+    
+    .step-description {
+        font-size: 1rem;
+    }
+}
+
+/* Form Validation Styles */
+.form-group.has-error .form-input,
+.form-group.has-error .form-textarea {
+    border-color: var(--error-red);
+    box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+.form-group.has-success .form-input,
+.form-group.has-success .form-textarea {
+    border-color: var(--success-green);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.error-message {
+    color: var(--error-red);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.error-message i {
+    font-size: 1rem;
+}
+
+/* Loading States */
+.btn.loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 1s linear infinite;
+    color: var(--white);
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
