@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Highlights - Millennial Mamas</title>
+    <meta name="description" content="Explore our community event highlights, success stories, and upcoming activities at Millennial Mamas.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="highlights.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="images/logo.jpg" alt="Millennial Mamas Logo" class="logo-image">
+                </div>
+                <h1 class="logo-title">Millennial Mamas</h1>
+            </div>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Event Highlights & Community Impact</h1>
+            <p class="hero-subtitle">Celebrating our journey, showcasing our impact, and sharing the powerful moments that define our community</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Filter Tabs -->
+        <div class="filter-section">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Highlights</button>
+                <button class="filter-tab" data-filter="events">Past Events</button>
+                <button class="filter-tab" data-filter="videos">Videos & Media</button>
+                <button class="filter-tab" data-filter="stories">Success Stories</button>
+                <button class="filter-tab" data-filter="upcoming">Upcoming</button>
+            </div>
+        </div>
+
+        <!-- Featured Highlight -->
+        <section class="featured-highlight">
+            <div class="featured-card">
+                <div class="featured-media">
+                    <img src="images/community.jpg" alt="Annual Gala 2025">
+                    <div class="play-overlay">
+                        <button class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="featured-badge">Featured</div>
+                </div>
+                <div class="featured-content">
+                    <span class="featured-category">Annual Event</span>
+                    <h2 class="featured-title">Millennial Mamas Annual Gala 2025</h2>
+                    <p class="featured-description">
+                        Our biggest celebration yet! Over 300 mothers came together to celebrate achievements, 
+                        share stories, and strengthen our sisterhood. Watch the highlights from this incredible evening.
+                    </p>
+                    <div class="featured-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">300+</span>
+                            <span class="stat-label">Attendees</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50</span>
+                            <span class="stat-label">Success Stories</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">$25K</span>
+                            <span class="stat-label">Raised</span>
+                        </div>
+                    </div>
+                    <div class="featured-actions">
+                        <button class="btn btn-primary">Watch Highlights</button>
+                        <button class="btn btn-secondary">View Gallery</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlights Grid -->
+        <section class="highlights-grid">
+            <!-- Past Events -->
+            <div class="highlight-card" data-category="events">
+                <div class="highlight-media">
+                    <img src="images/mental health.jpg" alt="Mental Health Workshop">
+                    <div class="highlight-overlay">
+                        <span class="highlight-type">Workshop</span>
+                        <span class="highlight-date">June 2025</span>
+                    </div>
+                </div>
+                <div class="highlight-content">
+                    <h3 class="highlight-title">Mental Health Workshop Series</h3>
+                    <p class="highlight-description">A 3-day intensive workshop helping mothers develop coping strategies and mental wellness techniques.</p>
+                    <div class="highlight-impact">
+                        <span><i class="fas fa-users"></i> 85 Participants</span>
+                        <span><i class="fas fa-heart"></i> 95% Satisfaction</span>
+                    </div>
+                    <a href="#" class="highlight-link">View Details</a>
+                </div>
+            </div>
+
+            <div class="highlight-card" data-category="events">
+                <div class="highlight-media">
+                    <img src="images/money.jpg" alt="Money Monday">
+                    <div class="highlight-overlay">
+                        <span class="highlight-type">Training</span>
+                        <span class="highlight-date">May 2025</span>
+                    </div>
+                </div>
+                <div class="highlight-content">
+                    <h3 class="highlight-title">Money Monday Mega Session</h3>
+                    <p class="highlight-description">Financial literacy workshop covering budgeting, savings, and investment strategies for single mothers.</p>
+                    <div class="highlight-impact">
+                        <span><i class="fas fa-users"></i> 120 Participants</span>
+                        <span><i class="fas fa-chart-line"></i> 78% Started Savings</span>
+                    </div>
+                    <a href="#" class="highlight-link">View Details</a>
+                </div>
+            </div>
+
+            <div class="highlight-card" data-category="events">
+                <div class="highlight-media">
+                    <img src="images/hangout.jpg" alt="Moms and Kids Hangout">
+                    <div class="highlight-overlay">
+                        <span class="highlight-type">Community</span>
+                        <span class="highlight-date">April 2025</span>
+                    </div>
+                </div>
+                <div class="highlight-content">
+                    <h3 class="highlight-title">Moms & Kids Spring Hangout</h3>
+                    <p class="highlight-description">A beautiful day at the park where families bonded, children played, and lasting friendships were formed.</p>
+                    <div class="highlight-impact">
+                        <span><i class="fas fa-users"></i> 200+ Families</span>
+                        <span><i class="fas fa-smile"></i> Joy & Connection</span>
+                    </div>
+                    <a href="#" class="highlight-link">View Details</a>
+                </div>
+            </div>
+
+            <!-- Videos & Media -->
+            <div class="highlight-card video-card" data-category="videos">
+                <div class="highlight-media">
+                    <img src="images/community.jpg" alt="Documentary">
+                    <div class="play-overlay">
+                        <button class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="highlight-overlay">
+                        <span class="highlight-type">Documentary</span>
+                        <span class="highlight-duration">25 min</span>
+                    </div>
+                </div>
+                <div class="highlight-content">
+                    <h3 class="highlight-title">"Voices of Strength" Documentary</h3>
+                    <p class="highlight-description">Follow the journeys of five mothers who transformed their lives through our community programs.</p>
+                    <div class="highlight-impact">
+                        <span><i class="fas fa-eye"></i> 15K Views</span>
+                        <span><i class="fas fa-heart"></i> 500 Likes</span>
+                    </div>
+                    <a href="#" class="highlight-link">Watch Now</a>
+                </div>
+            </div>
+
+            <div class="highlight-card video-card" data-category="videos">
+                <div class="highlight-media">
+                    <img src="images/mental health.jpg" alt="Podcast">
+                    <div class="play-overlay">
+                        <button class="play-btn">
+                            <i class="fas fa-podcast"></i>
+                        </button>
+                    </div>
+                    <div class="highlight-overlay">
+                        <span class="highlight-type">Podcast</span>
+                        <span class="highlight-duration">45 min</span>
+                    </div>
+                </div>
+                <div class="highlight-content">
+                    <h3 class="highlight-title">Millennial Mamas Podcast Series</h3>
+                    <p class="highlight-description">Weekly conversations with inspiring mothers sharing their wisdom, challenges, and triumphs.</p>
+                    <div class="highlight-impact">
+                        <span><i class="fas fa-download"></i> 8K Downloads</span>
+                        <span><i class="fas fa-star"></i> 4.8 Rating</span>
+                    </div>
+                    <a href="#" class="highlight-link">Listen Now</a>
+                </div>
+            </div>
+
+            <div class="highlight-card video-card" data-category="videos">
+                <div class="highlight-media">
+                    <img src="images/our story.jpg" alt="YouTube Channel">
+                    <div class="play-overlay">
+                        <button class="play-btn">
+                            <i class="fab fa-youtube"></i>
+                        </button>
+                    </div>
+                    <div class="highlight-overlay">
+                        <span class="highlight-type">YouTube</span>
+                        <span class="highlight-duration">Channel</span>
+                    </div>
+                </div>
+                <div class="highlight-content">
+                    <h3 class="highlight-title">YouTube Community Channel</h3>
+                    <p class="highlight-description">Subscribe to our channel for weekly content, live sessions, and community updates.</p>
+                    <div class="highlight-impact">
+                        <span><i class="fas fa-users"></i> 5K Subscribers</span>
+                        <span><i class="fas fa-video"></i> 50+ Videos</span>
+                    </div>
+                    <a href="#" class="highlight-link">Subscribe</a>
+                </div>
+            </div>
+
+            <!-- Success Stories -->
+            <div class="highlight-card story-card" data-category="stories">
+                <div class="highlight-media">
+                    <img src="images/salome.png" alt="Success Story">
+                    <div class="highlight-overlay">
+                        <span class="highlight-type">Success Story</span>
+                        <span class="highlight-date">Recent</span>
+                    </div>
+                </div>
+                <div class="highlight-content">
+                    <h3 class="highlight-title">From Struggle to Business Owner</h3>
+                    <p class="highlight-description">Sarah's journey from financial hardship to running her own successful catering business.</p>
+                    <div class="highlight-impact">
+                        <span><i class="fas fa-trophy"></i> $50K Revenue</span>
+                        <span><i class="fas fa-briefcase"></i> 10 Employees</span>
+                    </div>
+                    <a href="#" class="highlight-link">Read Story</a>
+                </div>
+            </div>
+
+            <div class="highlight-card story-card" data-category="stories">
+                <div class="highlight-media">
+                    <img src="images/community.jpg" alt="Education Success">
+                    <div class="highlight-overlay">
+                        <span class="highlight-type">Achievement</span>
+                        <span class="highlight-date">May 2025</span>
+                    </div>
+                </div>
+                <div class="highlight-content">
+                    <h3 class="highlight-title">Graduating with Honors</h3>
+                    <p class="highlight-description">Maria completed her nursing degree while raising three children, with support from our community.</p>
+                    <div class="highlight-impact">
+                        <span><i class="fas fa-graduation-cap"></i> Degree Earned</span>
+                        <span><i class="fas fa-star"></i> Summa Cum Laude</span>
+                    </div>
+                    <a href="#" class="highlight-link">Read Story</a>
+                </div>
+            </div>
+
+            <div class="highlight-card story-card" data-category="stories">
+                <div class="highlight-media">
+                    <img src="images/mental health.jpg" alt="Wellness Journey">
+                    <div class="highlight-overlay">
+                        <span class="highlight-type">Transformation</span>
+                        <span class="highlight-date">April 2025</span>
+                    </div>
+                </div>
+                <div class="highlight-content">
+                    <h3 class="highlight-title">Mental Health Transformation</h3>
+                    <p class="highlight-description">Jennifer's powerful journey from depression to becoming a peer counselor in our community.</p>
+                    <div class="highlight-impact">
+                        <span><i class="fas fa-heart"></i> Wellness Achieved</span>
+                        <span><i class="fas fa-hands-helping"></i> Helping Others</span>
+                    </div>
+                    <a href="#" class="highlight-link">Read Story</a>
+                </div>
+            </div>
+
+            <!-- Upcoming Events -->
+            <div class="highlight-card upcoming-card" data-category="upcoming">
+                <div class="highlight-media">
+                    <img src="images/community.jpg" alt="Annual Conference">
+                    <div class="highlight-overlay">
+                        <span class="highlight-type">Conference</span>
+                        <span class="highlight-date">Aug 2025</span>
+                    </div>
+                    <div class="coming-soon-badge">Coming Soon</div>
+                </div>
+                <div class="highlight-content">
+                    <h3 class="highlight-title">Annual Leadership Conference</h3>
+                    <p class="highlight-description">Three days of empowerment, networking, and skill-building for mothers ready to lead.</p>
+                    <div class="highlight-impact">
+                        <span><i class="fas fa-calendar"></i> Aug 15-17</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Nairobi</span>
+                    </div>
+                    <a href="#" class="highlight-link">Register Now</a>
+                </div>
+            </div>
+
+            <div class="highlight-card upcoming-card" data-category="upcoming">
+                <div class="highlight-media">
+                    <img src="images/hangout.jpg" alt="Family Fun Day">
+                    <div class="highlight-overlay">
+                        <span class="highlight-type">Family Event</span>
+                        <span class="highlight-date">July 2025</span>
+                    </div>
+                    <div class="coming-soon-badge">This Month</div>
+                </div>
+                <div class="highlight-content">
+                    <h3 class="highlight-title">Summer Family Fun Day</h3>
+                    <p class="highlight-description">A day of games, food, and fun activities for the whole family at the community center.</p>
+                    <div class="highlight-impact">
+                        <span><i class="fas fa-calendar"></i> July 20</span>
+                        <span><i class="fas fa-clock"></i> 10 AM - 4 PM</span>
+                    </div>
+                    <a href="#" class="highlight-link">Join Us</a>
+                </div>
+            </div>
+
+            <div class="highlight-card upcoming-card" data-category="upcoming">
+                <div class="highlight-media">
+                    <img src="images/money.jpg" alt="Financial Workshop">
+                    <div class="highlight-overlay">
+                        <span class="highlight-type">Workshop</span>
+                        <span class="highlight-date">Aug 2025</span>
+                    </div>
+                    <div class="coming-soon-badge">Register</div>
+                </div>
+                <div class="highlight-content">
+                    <h3 class="highlight-title">Investment Masterclass</h3>
+                    <p class="highlight-description">Learn advanced investment strategies and wealth-building techniques from financial experts.</p>
+                    <div class="highlight-impact">
+                        <span><i class="fas fa-calendar"></i> Aug 5</span>
+                        <span><i class="fas fa-users"></i> Limited Seats</span>
+                    </div>
+                    <a href="#" class="highlight-link">Register</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">Be Part of Our Next Highlight</h2>
+                <p class="cta-description">Join our community events and create memories that will inspire others</p>
+                <div class="cta-buttons">
+                    <a href="index.html#upcoming-events" class="btn btn-primary">View Upcoming Events</a>
+                    <a href="membership-form.html" class="btn btn-secondary">Become a Member</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="highlights.js"></script>
+</body>
+</html>
