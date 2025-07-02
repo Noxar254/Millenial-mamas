@@ -100,6 +100,373 @@ document.addEventListener('DOMContentLoaded', function() {
             element.style.transform = `translate(${x}px, ${y}px)`;
         });
     });
+    
+    // Merchandise Slider Navigation
+    function initMerchandiseSlider() {
+        const merchandiseSlider = document.querySelector('.merchandise-slider');
+        const prevButton = document.querySelector('.slider-prev');
+        const nextButton = document.querySelector('.slider-next');
+        
+        if (merchandiseSlider && prevButton && nextButton) {
+            const cardWidth = 275; // Card width + gap
+            
+            // Function to update button visibility
+            function updateButtonVisibility() {
+                const scrollLeft = merchandiseSlider.scrollLeft;
+                const scrollWidth = merchandiseSlider.scrollWidth;
+                const clientWidth = merchandiseSlider.clientWidth;
+                
+                // Check if content overflows (needs scrolling)
+                const hasOverflow = scrollWidth > clientWidth;
+                
+                if (!hasOverflow) {
+                    // Hide both buttons if no overflow
+                    prevButton.style.display = 'none';
+                    nextButton.style.display = 'none';
+                    return;
+                }
+                
+                // Show/hide previous button
+                if (scrollLeft <= 5) { // Small threshold to account for rounding
+                    prevButton.style.display = 'none';
+                } else {
+                    prevButton.style.display = 'flex';
+                }
+                
+                // Show/hide next button
+                if (scrollLeft >= scrollWidth - clientWidth - 5) { // Small threshold
+                    nextButton.style.display = 'none';
+                } else {
+                    nextButton.style.display = 'flex';
+                }
+            }
+            
+            // Initial button visibility check
+            setTimeout(updateButtonVisibility, 100); // Small delay to ensure layout is complete
+            
+            // Update button visibility on scroll
+            merchandiseSlider.addEventListener('scroll', updateButtonVisibility);
+            
+            // Update button visibility on window resize
+            window.addEventListener('resize', () => {
+                setTimeout(updateButtonVisibility, 100);
+            });
+            
+            // Smooth scrolling with button updates
+            prevButton.addEventListener('click', function() {
+                merchandiseSlider.scrollBy({
+                    left: -cardWidth,
+                    behavior: 'smooth'
+                });
+                // Update buttons after scroll animation
+                setTimeout(updateButtonVisibility, 300);
+            });
+            
+            nextButton.addEventListener('click', function() {
+                merchandiseSlider.scrollBy({
+                    left: cardWidth,
+                    behavior: 'smooth'
+                });
+                // Update buttons after scroll animation
+                setTimeout(updateButtonVisibility, 300);
+            });
+            
+            // Quick View Button Functionality
+            const quickViewButtons = document.querySelectorAll('.btn-quick-view');
+            quickViewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productCard = this.closest('.product-card');
+                    const productTitle = productCard.querySelector('.product-title').textContent;
+                    const productPrice = productCard.querySelector('.product-price').textContent;
+                    const productImage = productCard.querySelector('.product-image img').src;
+                    
+                    openQuickViewModal(productTitle, productPrice, productImage);
+                });
+            });
+            
+            // Buy Now Button Functionality
+            const buyNowButtons = document.querySelectorAll('.btn-buy-now');
+            buyNowButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productCard = this.closest('.product-card');
+                    const productTitle = productCard.querySelector('.product-title').textContent;
+                    const productPrice = productCard.querySelector('.product-price').textContent;
+                    
+                    // Show added to cart message
+                    showAddToCartMessage(productTitle, productPrice);
+                });
+            });
+        }
+    }
+    
+    // Quick View Modal
+    function openQuickViewModal(title, price, imageSrc) {
+        // Remove any existing modals
+        const existingModal = document.querySelector('.quick-view-modal');
+        if (existingModal) {
+            existingModal.remove();
+        }
+        
+        // Create modal HTML
+        const modal = document.createElement('div');
+        modal.className = 'quick-view-modal';
+        modal.innerHTML = `
+            <div class="modal-overlay">
+                <div class="modal-content">
+                    <button class="modal-close">&times;</button>
+                    <div class="product-quick-view">
+                        <div class="product-quick-image">
+                            <img src="${imageSrc}" alt="${title}">
+                        </div>
+                        <div class="product-quick-details">
+                            <h3 class="product-quick-title">${title}</h3>
+                            <p class="product-quick-price">${price}</p>
+                            <div class="product-quick-colors">
+                                <span class="color-dot color-green" data-color="Green"></span>
+                                <span class="color-dot color-pink" data-color="Pink"></span>
+                                <span class="color-dot color-black" data-color="Black"></span>
+                            </div>
+                            <div class="product-quick-description">
+                                <p>This high-quality ${title.toLowerCase()} showcases your support for the Millennial Mamas community. Made with durable and eco-friendly materials, it's perfect for everyday use while spreading awareness for our cause.</p>
+                            </div>
+                            <div class="product-quick-quantity">
+                                <label>Quantity:</label>
+                                <div class="quantity-selector">
+                                    <button class="quantity-decrease">-</button>
+                                    <input type="number" value="1" min="1" max="10">
+                                    <button class="quantity-increase">+</button>
+                                </div>
+                            </div>
+                            <div class="product-quick-actions">
+                                <button class="btn-add-to-cart">Add to Cart</button>
+                                <button class="btn-buy-now-modal">Buy Now</button>
+                            </div>
+                            <div class="product-quick-meta">
+                                <p>All proceeds support our programs for mothers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Add modal to the DOM
+        document.body.appendChild(modal);
+        
+        // Prevent body scrolling
+        document.body.style.overflow = 'hidden';
+        
+        // Close modal events
+        const closeButton = modal.querySelector('.modal-close');
+        closeButton.addEventListener('click', () => {
+            modal.remove();
+            document.body.style.overflow = '';
+        });
+        
+        modal.querySelector('.modal-overlay').addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-overlay')) {
+                modal.remove();
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Quantity selector functionality
+        const quantityInput = modal.querySelector('.quantity-selector input');
+        const decreaseBtn = modal.querySelector('.quantity-decrease');
+        const increaseBtn = modal.querySelector('.quantity-increase');
+        
+        decreaseBtn.addEventListener('click', () => {
+            if (quantityInput.value > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        });
+        
+        increaseBtn.addEventListener('click', () => {
+            if (quantityInput.value < 10) {
+                quantityInput.value = parseInt(quantityInput.value) + 1;
+            }
+        });
+        
+        // Color selector functionality
+        const colorDots = modal.querySelectorAll('.color-dot');
+        colorDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                colorDots.forEach(d => d.classList.remove('selected'));
+                dot.classList.add('selected');
+            });
+        });
+        
+        // Add to cart button
+        const addToCartBtn = modal.querySelector('.btn-add-to-cart');
+        addToCartBtn.addEventListener('click', () => {
+            const quantity = quantityInput.value;
+            const selectedColor = modal.querySelector('.color-dot.selected')?.getAttribute('data-color') || 'Green';
+            
+            showAddToCartMessage(title, price, quantity, selectedColor);
+            modal.remove();
+            document.body.style.overflow = '';
+        });
+        
+        // Buy now button
+        const buyNowBtn = modal.querySelector('.btn-buy-now-modal');
+        buyNowBtn.addEventListener('click', () => {
+            alert(`Processing purchase for ${title}. You'll be redirected to checkout in a real implementation.`);
+            modal.remove();
+            document.body.style.overflow = '';
+        });
+        
+        // Select first color by default
+        colorDots[0].classList.add('selected');
+    }
+    
+    // Add to Cart Message
+    function showAddToCartMessage(title, price, quantity = 1, color = 'Green') {
+        // Create cart notification
+        const notification = document.createElement('div');
+        notification.className = 'cart-notification';
+        notification.innerHTML = `
+            <div class="cart-notification-content">
+                <i class="fas fa-check-circle"></i>
+                <div class="cart-notification-text">
+                    <p class="cart-notification-title">${title} added to cart!</p>
+                    <p class="cart-notification-details">${quantity} × ${price} (${color})</p>
+                </div>
+                <button class="cart-notification-close">&times;</button>
+            </div>
+            <div class="cart-notification-actions">
+                <button class="btn-view-cart">View Cart</button>
+                <button class="btn-checkout">Checkout</button>
+            </div>
+        `;
+        
+        // Add notification to the DOM
+        document.body.appendChild(notification);
+        
+        // Animation
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 100);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        }, 5000);
+        
+        // Close button
+        notification.querySelector('.cart-notification-close').addEventListener('click', () => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        });
+        
+        // View Cart button
+        notification.querySelector('.btn-view-cart').addEventListener('click', () => {
+            alert('Cart page would open here in a real implementation.');
+            notification.remove();
+        });
+        
+        // Checkout button
+        notification.querySelector('.btn-checkout').addEventListener('click', () => {
+            alert('Checkout process would start here in a real implementation.');
+            notification.remove();
+        });
+    }
+    
+    // Initialize the merchandise slider functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        initMerchandiseSlider();
+        initTestimonialsSection();
+    });
+    
+    // Also initialize after window loads as a fallback
+    window.addEventListener('load', function() {
+        initMerchandiseSlider();
+        initTestimonialsSection();
+    });
+
+    // Testimonials Section Functionality
+    function initTestimonialsSection() {
+        const testimonialsSlider = document.querySelector('.testimonials-slider');
+        if (testimonialsSlider) {
+            // Clone testimonials for seamless loop
+            const testimonials = testimonialsSlider.children;
+            const testimonialCount = testimonials.length;
+            
+            // Clone all testimonials and append them for seamless scrolling
+            for (let i = 0; i < testimonialCount; i++) {
+                const clone = testimonials[i].cloneNode(true);
+                testimonialsSlider.appendChild(clone);
+            }
+            
+            // Add interaction effects
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            testimonialCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Add click to pause/resume functionality
+            testimonialsSlider.addEventListener('click', function() {
+                if (this.style.animationPlayState === 'paused') {
+                    this.style.animationPlayState = 'running';
+                } else {
+                    this.style.animationPlayState = 'paused';
+                }
+            });
+        }
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Navbar scroll effect
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Add shadow on scroll
+        if (scrollTop > 100) {
+            navbar.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+        } else {
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+
+    // Enhanced floating animation with mouse interaction
+    const floatingElements = document.querySelectorAll('.floating-element');
+    
+    document.addEventListener('mousemove', function(e) {
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
+        
+        floatingElements.forEach((element, index) => {
+            const speed = (index + 1) * 0.02;
+            const x = (mouseX - 0.5) * 20 * speed;
+            const y = (mouseY - 0.5) * 20 * speed;
+            
+            element.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    });
 
     // Intersection Observer for animations
     const observerOptions = {

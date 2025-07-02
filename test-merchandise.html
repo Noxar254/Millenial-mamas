@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Merchandise Section</title>
+    <link rel="stylesheet" href="merchandise.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Merchandise Section -->
+    <section class="merchandise-section" id="shop">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Millennial Mamas Merchandise</h2>
+                <p class="section-subtitle">Support our mission with stylish and meaningful products</p>
+            </div>
+            
+            <div class="merchandise-container">
+                <div class="merchandise-wrapper">
+                    <!-- Product Cards -->
+                    <div class="merchandise-slider">
+                        <!-- Product 1 -->
+                        <div class="product-card">
+                            <div class="product-badge">New</div>
+                            <div class="product-image">
+                                <img src="images/mamas.avif" alt="Empowered Mom T-Shirt">
+                                <div class="product-actions">
+                                    <button class="btn-quick-view">Quick View</button>
+                                    <button class="btn-buy-now">Buy Now</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Empowered Mom T-Shirt</h3>
+                                <p class="product-price">$24.99</p>
+                                <div class="product-colors">
+                                    <span class="color-dot color-green"></span>
+                                    <span class="color-dot color-pink"></span>
+                                    <span class="color-dot color-black"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 2 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/community.jpg" alt="Mama's Essential Tote Bag">
+                                <div class="product-actions">
+                                    <button class="btn-quick-view">Quick View</button>
+                                    <button class="btn-buy-now">Buy Now</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Mama's Essential Tote Bag</h3>
+                                <p class="product-price">$19.99</p>
+                                <div class="product-colors">
+                                    <span class="color-dot color-green"></span>
+                                    <span class="color-dot color-pink"></span>
+                                    <span class="color-dot color-white"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 3 -->
+                        <div class="product-card">
+                            <div class="product-badge">Bestseller</div>
+                            <div class="product-image">
+                                <img src="images/mental health.jpg" alt="Self-Care Water Bottle">
+                                <div class="product-actions">
+                                    <button class="btn-quick-view">Quick View</button>
+                                    <button class="btn-buy-now">Buy Now</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Self-Care Water Bottle</h3>
+                                <p class="product-price">$22.99</p>
+                                <div class="product-colors">
+                                    <span class="color-dot color-green"></span>
+                                    <span class="color-dot color-pink"></span>
+                                    <span class="color-dot color-blue"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 4 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/money.jpg" alt="Mama's Journey Journal">
+                                <div class="product-actions">
+                                    <button class="btn-quick-view">Quick View</button>
+                                    <button class="btn-buy-now">Buy Now</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Mama's Journey Journal</h3>
+                                <p class="product-price">$18.99</p>
+                                <div class="product-colors">
+                                    <span class="color-dot color-green"></span>
+                                    <span class="color-dot color-pink"></span>
+                                    <span class="color-dot color-black"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 5 -->
+                        <div class="product-card">
+                            <div class="product-badge">Limited</div>
+                            <div class="product-image">
+                                <img src="images/hangout.jpg" alt="Cozy Mama Hoodie">
+                                <div class="product-actions">
+                                    <button class="btn-quick-view">Quick View</button>
+                                    <button class="btn-buy-now">Buy Now</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Cozy Mama Hoodie</h3>
+                                <p class="product-price">$39.99</p>
+                                <div class="product-colors">
+                                    <span class="color-dot color-green"></span>
+                                    <span class="color-dot color-pink"></span>
+                                    <span class="color-dot color-white"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <button class="slider-nav slider-prev" aria-label="Previous product">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-nav slider-next" aria-label="Next product">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="merchandise-footer">
+                    <a href="#" class="btn btn-primary">View All Products</a>
+                    <p class="merchandise-note">All proceeds support our programs for mothers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Merchandise Slider Navigation
+        function initMerchandiseSlider() {
+            const merchandiseSlider = document.querySelector('.merchandise-slider');
+            const prevButton = document.querySelector('.slider-prev');
+            const nextButton = document.querySelector('.slider-next');
+            
+            if (merchandiseSlider && prevButton && nextButton) {
+                const cardWidth = 275; // Card width + gap
+                
+                // Function to update button visibility
+                function updateButtonVisibility() {
+                    const scrollLeft = merchandiseSlider.scrollLeft;
+                    const scrollWidth = merchandiseSlider.scrollWidth;
+                    const clientWidth = merchandiseSlider.clientWidth;
+                    
+                    // Check if content overflows (needs scrolling)
+                    const hasOverflow = scrollWidth > clientWidth;
+                    
+                    if (!hasOverflow) {
+                        // Hide both buttons if no overflow
+                        prevButton.style.display = 'none';
+                        nextButton.style.display = 'none';
+                        return;
+                    }
+                    
+                    // Show/hide previous button
+                    if (scrollLeft <= 5) { // Small threshold to account for rounding
+                        prevButton.style.display = 'none';
+                    } else {
+                        prevButton.style.display = 'flex';
+                    }
+                    
+                    // Show/hide next button
+                    if (scrollLeft >= scrollWidth - clientWidth - 5) { // Small threshold
+                        nextButton.style.display = 'none';
+                    } else {
+                        nextButton.style.display = 'flex';
+                    }
+                }
+                
+                // Initial button visibility check
+                setTimeout(updateButtonVisibility, 100); // Small delay to ensure layout is complete
+                
+                // Update button visibility on scroll
+                merchandiseSlider.addEventListener('scroll', updateButtonVisibility);
+                
+                // Update button visibility on window resize
+                window.addEventListener('resize', () => {
+                    setTimeout(updateButtonVisibility, 100);
+                });
+                
+                // Smooth scrolling with button updates
+                prevButton.addEventListener('click', function() {
+                    merchandiseSlider.scrollBy({
+                        left: -cardWidth,
+                        behavior: 'smooth'
+                    });
+                    // Update buttons after scroll animation
+                    setTimeout(updateButtonVisibility, 300);
+                });
+                
+                nextButton.addEventListener('click', function() {
+                    merchandiseSlider.scrollBy({
+                        left: cardWidth,
+                        behavior: 'smooth'
+                    });
+                    // Update buttons after scroll animation
+                    setTimeout(updateButtonVisibility, 300);
+                });
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            initMerchandiseSlider();
+        });
+    </script>
+</body>
+</html>
