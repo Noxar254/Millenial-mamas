@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources Scroll Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9fafb;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .test-title {
+            text-align: center;
+            color: #22c55e;
+            margin-bottom: 30px;
+        }
+        
+        .test-instructions {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .test-instructions h3 {
+            color: #22c55e;
+            margin-top: 0;
+        }
+        
+        .test-instructions ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .test-instructions li {
+            margin: 5px 0;
+        }
+        
+        /* Copy resource section styles */
+        .resources-section {
+            background: #f9fafb;
+            padding: 80px 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .resource-subsection {
+            margin-bottom: 60px;
+        }
+        
+        .resource-subsection-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 class="test-title">Resources Scroll Indicator Test</h1>
+        
+        <div class="test-instructions">
+            <h3>Testing Instructions:</h3>
+            <ul>
+                <li><strong>Mobile/Tablet:</strong> Scroll horizontally through the resource cards below</li>
+                <li><strong>Look for:</strong> Green circular arrow indicators that show scroll direction</li>
+                <li><strong>Expected behavior:</strong> 
+                    <ul>
+                        <li>Right arrow (→) appears when you can scroll right</li>
+                        <li>Left arrow (←) appears when you can scroll left</li>
+                        <li>Indicators auto-hide after 2-3 seconds</li>
+                        <li>Indicators reappear when you touch/scroll</li>
+                    </ul>
+                </li>
+                <li><strong>Desktop:</strong> Indicators should be hidden (desktop has visible scrollbars)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Resources Section -->
+    <section class="resources-section" id="resources">
+        <div class="container">
+            <div class="resources-header">
+                <h2 class="section-title">Resources</h2>
+                <p class="section-subtitle">Test the horizontal scroll indicators below</p>
+            </div>
+            
+            <!-- Blog & Stories Subsection -->
+            <div class="resource-subsection">
+                <h3 class="resource-subsection-title">Blog & Stories</h3>
+                <div class="resource-cards-container">
+                    <!-- Dynamic Mobile Scroll Indicator -->
+                    <div class="scroll-indicator">
+                    </div>
+                    
+                    <div class="resource-cards" data-scroll-container="blogs">
+                        <div class="resource-card">
+                            <div class="resource-card-image">
+                                <img src="images/mental health.jpg" alt="Mental Health Blog">
+                                <div class="resource-overlay">
+                                    <span class="resource-type">Blog Post</span>
+                                </div>
+                            </div>
+                            <div class="resource-card-content">
+                                <h4 class="resource-card-title">Breaking the Silence: Mental Health for Moms</h4>
+                                <p class="resource-card-description">Real stories from mothers who found healing and hope through community support.</p>
+                                <div class="resource-card-meta">
+                                    <span class="resource-date">June 15, 2025</span>
+                                    <span class="resource-read-time">5 min read</span>
+                                </div>
+                                <a href="#" class="resource-card-btn">Read Story</a>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-card-image">
+                                <img src="images/money.jpg" alt="Financial Empowerment">
+                                <div class="resource-overlay">
+                                    <span class="resource-type">Success Story</span>
+                                </div>
+                            </div>
+                            <div class="resource-card-content">
+                                <h4 class="resource-card-title">From Struggle to Success: A Mom's Financial Journey</h4>
+                                <p class="resource-card-description">How one mother transformed her financial situation through our Money Monday program.</p>
+                                <div class="resource-card-meta">
+                                    <span class="resource-date">June 10, 2025</span>
+                                    <span class="resource-read-time">7 min read</span>
+                                </div>
+                                <a href="#" class="resource-card-btn">Read Story</a>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-card-image">
+                                <img src="images/community.jpg" alt="Community Impact">
+                                <div class="resource-overlay">
+                                    <span class="resource-type">Impact Story</span>
+                                </div>
+                            </div>
+                            <div class="resource-card-content">
+                                <h4 class="resource-card-title">Building Bridges: Community Outreach Impact</h4>
+                                <p class="resource-card-description">The transformative power of community support and how it changes lives.</p>
+                                <div class="resource-card-meta">
+                                    <span class="resource-date">June 5, 2025</span>
+                                    <span class="resource-read-time">6 min read</span>
+                                </div>
+                                <a href="#" class="resource-card-btn">Read Story</a>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-card-image">
+                                <img src="images/hangout.jpg" alt="Motherhood Journey">
+                                <div class="resource-overlay">
+                                    <span class="resource-type">Personal Story</span>
+                                </div>
+                            </div>
+                            <div class="resource-card-content">
+                                <h4 class="resource-card-title">Finding My Village: A Journey of Connection</h4>
+                                <p class="resource-card-description">One mother's experience of finding her tribe and building lasting friendships.</p>
+                                <div class="resource-card-meta">
+                                    <span class="resource-date">May 28, 2025</span>
+                                    <span class="resource-read-time">4 min read</span>
+                                </div>
+                                <a href="#" class="resource-card-btn">Read Story</a>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-card-image">
+                                <img src="images/mental health.jpg" alt="Extra Card">
+                                <div class="resource-overlay">
+                                    <span class="resource-type">Test Card</span>
+                                </div>
+                            </div>
+                            <div class="resource-card-content">
+                                <h4 class="resource-card-title">Extra Card for Testing</h4>
+                                <p class="resource-card-description">This extra card ensures horizontal scrolling is needed.</p>
+                                <div class="resource-card-meta">
+                                    <span class="resource-date">Test Date</span>
+                                    <span class="resource-read-time">Test read</span>
+                                </div>
+                                <a href="#" class="resource-card-btn">Test Button</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
