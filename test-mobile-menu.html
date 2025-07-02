@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Menu Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background: #22c55e;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            padding: 0 20px;
+        }
+
+        .mobile-logo {
+            color: white;
+            font-weight: bold;
+        }
+
+        .mobile-toggle {
+            display: flex;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-toggle span {
+            width: 28px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            flex-direction: column;
+            padding: 25px 20px;
+            transform: translateX(-100%);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .nav-menu.active {
+            transform: translateX(0);
+        }
+
+        .nav-item {
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .content {
+            margin-top: 100px;
+            padding: 20px;
+            height: 200vh;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="mobile-logo">Test Logo</div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <div class="nav-menu" id="navMenu">
+            <div class="nav-item">
+                <a href="#" class="nav-link">Menu Item 1</a>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Menu Item 2</a>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Menu Item 3</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Test Content</h1>
+        <p>This is test content to check if the mobile menu works properly.</p>
+        <p>The mobile menu should slide in from the left when you click the hamburger button.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing mobile menu...');
+            
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            console.log('Mobile toggle element:', mobileToggle);
+            console.log('Nav menu element:', navMenu);
+
+            if (!mobileToggle || !navMenu) {
+                console.error('Elements not found!');
+                return;
+            }
+
+            mobileToggle.addEventListener('click', function(e) {
+                console.log('Mobile toggle clicked!');
+                e.preventDefault();
+                e.stopPropagation();
+                
+                navMenu.classList.toggle('active');
+                console.log('Nav menu active class:', navMenu.classList.contains('active'));
+                
+                // Animate hamburger menu
+                const spans = mobileToggle.querySelectorAll('span');
+                if (navMenu.classList.contains('active')) {
+                    console.log('Menu opening...');
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                } else {
+                    console.log('Menu closing...');
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    
+                    // Reset hamburger menu
+                    const spans = mobileToggle.querySelectorAll('span');
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
