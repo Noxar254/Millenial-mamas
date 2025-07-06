@@ -1993,10 +1993,6 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
-.program-card:hover::before {
-    left: 0;
-}
-
 .program-icon {
     width: 70px;
     height: 70px;
@@ -2196,10 +2192,6 @@ body {
 .involvement-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-}
-
-.involvement-card:hover::before {
-    transform: scaleX(1);
 }
 
 .involvement-icon {
@@ -3570,7 +3562,7 @@ html {
 /* Founders & Leadership Section */
 .founders-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #f0fdf4 50%, #fdf2f8 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #f0fdf4 50%, #fdf2f8 100%);
 }
 
 .founders-header {
@@ -3859,61 +3851,592 @@ html {
     text-align: center;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .founders-section {
+/* Wall of Fame Section */
+.wall-of-fame-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.wall-of-fame-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(26, 54, 93, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(26, 54, 93, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.wall-of-fame-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.wall-of-fame-header .section-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.wall-of-fame-header .section-subtitle {
+    font-size: 20px;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.wall-of-fame-container {
+    position: relative;
+    z-index: 2;
+}
+
+.wall-of-fame-wrapper {
+    overflow: hidden;
+    margin: 0 -40px;
+    position: relative;
+}
+
+.wall-of-fame-scroll {
+    display: flex;
+    gap: 32px;
+    padding: 0 40px 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e0 #f7fafc;
+}
+
+.wall-of-fame-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.wall-of-fame-scroll::-webkit-scrollbar-track {
+    background: #f7fafc;
+    border-radius: 10px;
+}
+
+.wall-of-fame-scroll::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.wall-of-fame-scroll::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+
+/* Fame Card */
+.fame-card {
+    flex: 0 0 380px;
+    background: #ffffff;
+    border-radius: 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    scroll-snap-align: start;
+    border: 1px solid #eef2f7;
+    position: relative;
+}
+
+.fame-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1a365d 0%, #2c5282 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.fame-card:hover::before {
+    transform: scaleX(1);
+}
+
+.fame-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.fame-image {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+}
+
+.fame-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.fame-card:hover .fame-image::after {
+    opacity: 1;
+}
+
+.fame-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fame-card:hover .fame-image img {
+    transform: scale(1.08);
+}
+
+.fame-content {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    height: 220px; /* Increased height for better desktop display */
+    justify-content: space-between;
+}
+
+.fame-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 16px;
+    line-height: 1.3;
+    flex-shrink: 0;
+    transition: color 0.3s ease;
+}
+
+.fame-card:hover .fame-title {
+    color: #2c5282;
+}
+
+.fame-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 0;
+    height: 45px; /* Fixed height for exactly 2 lines */
+}
+
+.fame-btn {
+    background: none;
+    color: #e91e63;
+    border: none;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: none;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-top: 0;
+    flex-shrink: 0;
+    position: relative;
+    width: auto;
+    align-self: flex-start;
+}
+
+.fame-btn i {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.fame-btn:hover {
+    color: #c2185b;
+}
+
+.fame-btn:hover i {
+    transform: translateX(4px);
+}
+
+/* Scroll Indicator */
+.fame-scroll-indicator {
+    text-align: center;
+    margin-top: 48px;
+    position: relative;
+}
+
+.scroll-hint {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #94a3b8;
+    font-style: italic;
+    padding: 12px 24px;
+    background: rgba(148, 163, 184, 0.1);
+    border-radius: 25px;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+/* Desktop scroll navigation buttons */
+@media (min-width: 1024px) {
+    .wall-of-fame-wrapper::before,
+    .wall-of-fame-wrapper::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        z-index: 10;
+        pointer-events: none;
+    }
+    
+    .wall-of-fame-wrapper::before {
+        left: 0;
+        background: linear-gradient(90deg, #f8f9fa 0%, transparent 100%);
+    }
+    
+    .wall-of-fame-wrapper::after {
+        right: 0;
+        background: linear-gradient(270deg, #f8f9fa 0%, transparent 100%);
+    }
+    
+    .wall-of-fame-scroll {
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 60px;
+    }
+    
+    .fame-card {
+        scroll-snap-align: start;
+    }
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) and (min-width: 481px) {
+    .wall-of-fame-section {
         padding: 60px 0;
     }
     
-    .founders-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .wall-of-fame-header {
         margin-bottom: 40px;
     }
     
-    .founder-card {
-        padding: 25px;
+    .fame-card {
+        flex: 0 0 280px;
     }
     
-    .founders-header .section-title {
-        font-size: 28px;
+    .fame-content {
+        padding: 20px;
+        height: 180px;
     }
     
-    .team-overview {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 30px 20px;
+    .fame-title {
+        font-size: 16px;
     }
     
-    .team-stats {
-        flex-direction: column;
-        gap: 20px;
+    .fame-description {
+        font-size: 13px;
+        line-height: 1.4;
+        height: 36px; /* Fixed height for exactly 2 lines on tablet */
     }
     
-    .team-stat-item {
-        padding: 15px;
-        background: #f9fafb;
+    .fame-btn {
+        font-size: 13px;
+        gap: 6px;
+        margin-top: 0;
+    }
+    
+    .fame-btn i {
+        font-size: 11px;
+    }
+    
+    .scroll-hint {
+        display: block;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+    .wall-of-fame-section {
+        padding: 50px 0;
+    }
+    
+    .wall-of-fame-wrapper {
+        margin: 0 -8px; /* Reduced wrapper margin for tighter layout */
+    }
+    
+    .wall-of-fame-scroll {
+        padding: 0 8px; /* Reduced padding for tighter layout */
+        gap: 0px !important; /* No gap between cards - enforced */
+        /* Hide scrollbar on mobile */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+    
+    /* Hide scrollbar on mobile for webkit browsers */
+    .wall-of-fame-scroll::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .fame-card {
+        flex: 0 0 200px; /* Made even slimmer for extremely compact layout */
+        border: none !important; /* Remove border to eliminate spacing */
+        margin: 0 !important; /* Remove any margins */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important; /* Lighter shadow for mobile */
+    }
+    
+    /* Add padding to first card on mobile to prevent edge alignment */
+    .fame-card:first-child {
+        margin-left: 8px; /* Minimal padding from edge for ultra-compact layout */
+    }
+    
+    .fame-image {
+        height: 120px; /* Further reduced image height for ultra-compact cards */
+    }
+    
+    .fame-content {
+        padding: 8px; /* Minimal padding for ultra-compact cards */
+        height: 110px; /* Reduced height for ultra-compact cards */
+    }
+    
+    .fame-title {
+        font-size: 13px; /* Smaller font for compact cards */
+        margin-bottom: 6px; /* Reduced margin */
+        line-height: 1.2; /* Tighter line height */
+    }
+    
+    .fame-description {
+        font-size: 10px; /* Smaller font for compact cards */
+        line-height: 1.2; /* Tighter line height */
+        height: 24px; /* Reduced height for 2 lines with smaller font */
+        margin-bottom: 4px; /* Small margin */
+    }
+    
+    .fame-btn {
+        font-size: 10px; /* Smaller button font */
+        gap: 3px; /* Reduced gap */
+        margin-top: 0;
+        padding: 4px 8px; /* Smaller button padding */
+    }
+    
+    .fame-btn i {
+        font-size: 8px; /* Smaller icon */
+    }
+    
+    /* Hide scroll indicator on mobile */
+    .fame-scroll-indicator {
+        display: none;
+    }
+    
+    /* Green theme enhancements for mobile */
+    .fame-card:hover {
+        border-left: 3px solid #22c55e;
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.03) 0%, rgba(255, 255, 255, 1) 100%);
+    }
+    
+    .fame-card:active {
+        transform: scale(0.98);
+        background: rgba(34, 197, 94, 0.05);
+    }
+    
+    /* Green accent for first card on mobile */
+    .fame-card:first-child::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+        z-index: 1;
+    }
+    
+    /* Enhanced button with green theme */
+    .fame-btn {
+        background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+        color: white;
+        border: none;
+        border-radius: 15px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(34, 197, 94, 0.2);
+    }
+    
+    .fame-btn:hover {
+        background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+    }
+}
+
+/* Desktop Enhancement */
+@media (min-width: 1200px) {
+    .wall-of-fame-section {
+        padding: 120px 0;
+    }
+    
+    .wall-of-fame-header {
+        margin-bottom: 100px;
+    }
+    
+    .wall-of-fame-header .section-title {
+        font-size: 56px;
+        margin-bottom: 24px;
+    }
+    
+    .wall-of-fame-header .section-subtitle {
+        font-size: 22px;
+        max-width: 700px;
+    }
+    
+    .wall-of-fame-wrapper {
+        margin: 0 -60px;
+    }
+    
+    .wall-of-fame-scroll {
+        padding: 0 60px 30px;
+        gap: 40px;
+    }
+    
+    .fame-card {
+        flex: 0 0 420px;
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.06);
+    }
+    
+    .fame-card:hover {
+        transform: translateY(-16px);
+        box-shadow: 0 32px 80px rgba(0, 0, 0, 0.12);
+    }
+    
+    .fame-image {
+        height: 280px;
+    }
+    
+    .fame-content {
+        padding: 40px;
+        height: 240px; /* Fixed height for consistent alignment on desktop */
+    }
+    
+    .fame-title {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+    
+    .fame-description {
+        font-size: 16px;
+        line-height: 1.6;
+        height: 51px; /* Fixed height for exactly 2 lines on desktop */
+    }
+    
+    .fame-btn {
+        font-size: 15px;
+        gap: 10px;
+        margin-top: 0; /* Remove margin to maintain alignment */
+    }
+    
+    .fame-btn i {
+        font-size: 13px;
+    }
+    
+    .fame-btn:hover i {
+        transform: translateX(6px);
+    }
+    
+    .scroll-hint {
+        display: none;
+    }
+    
+    /* Enhanced scrollbar for desktop */
+    .wall-of-fame-scroll::-webkit-scrollbar {
+        height: 10px;
+    }
+    
+    .wall-of-fame-scroll::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 12px;
+        margin: 0 60px;
+    }
+    
+    .wall-of-fame-scroll::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #1a365d, #2c5282);
         border-radius: 12px;
     }
     
-    .executive-board {
-        padding: 30px 20px;
+    .wall-of-fame-scroll::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(90deg, #2c5282, #3182ce);
+    }
+}
+
+/* Large Desktop Enhancement */
+@media (min-width: 1440px) {
+    .wall-of-fame-section {
+        padding: 140px 0;
     }
     
-    .board-info {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .wall-of-fame-header .section-title {
+        font-size: 64px;
     }
     
-    .board-highlights {
-        grid-template-columns: 1fr;
-    }
-    
-    .board-title {
+    .wall-of-fame-header .section-subtitle {
         font-size: 24px;
+        max-width: 800px;
     }
     
-    .team-title {
+    .wall-of-fame-scroll {
+        gap: 48px;
+    }
+    
+    .fame-card {
+        flex: 0 0 450px;
+    }
+    
+    .fame-image {
+        height: 300px;
+    }
+    
+    .fame-content {
+        padding: 48px;
+        min-height: 220px;
+    }
+    
+    .fame-title {
         font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .fame-description {
+        font-size: 17px;
+    }
+    
+    .fame-btn {
+        font-size: 16px;
+        gap: 12px;
+        margin-top: 24px;
+    }
+    
+    .fame-btn i {
+        font-size: 14px;
     }
 }
